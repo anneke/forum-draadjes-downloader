@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>VivaForum draadjes-downloader</title>
+    <link rel="stylesheet" as="style" href="css/style.css">
+
+  </head>
+  <body>
+    <main>
+        <header>
+            <h1>Download een draadje</h1>
+
+            <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+            </nav>
+        </header>
+
+        <form id="download-form">
+            <h2>Form</h2>
+            
+            <p>
+            <label for="download_url">Vul hier de URL in van het topic:</label>
+                <input name="download_url" id="download_url" type="text" required
+                value="https://forum.viva.nl/overig/het-grote-waar-verhuizen-wij-naartoe-topic/list_messages/478805"></p>
+
+            <button type="submit">Download</button></p>
+        </form>
+
+        <div id="statusUpdate" aria-live="polite">
+
+        </div>
+
+    <script src="./renderer.js"></script>
+  </body>
+</html>

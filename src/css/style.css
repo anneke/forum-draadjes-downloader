@@ -1,0 +1,85 @@
+body {
+  background: white;
+  padding: 0;
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+main {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+@font-face {
+  font-family: 'Nunito Sans';
+  src:  url('../fonts/NunitoSans-Regular.woff2') format('woff2'),
+        url('../fonts/NunitoSans-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Lexend Mega';
+  src:  url('../fonts/LexendMega-Regular.woff2') format('woff2'),
+        url('../fonts/LexendMega-Regular.woff') format('woff');
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Lexend Mega', sans-serif;
+}
+
+input, textarea, select {
+  font-family: inherit;
+}
+
+/* helper classes */
+
+.visually-hidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+/* forms */
+
+.attention {
+  color:green;
+}
+
+.uhoh {
+  color: red;
+}
+
+/* table */
+table {
+  width: auto;
+  overflow-x: scroll;
+  border-collapse: collapse;
+}
+
+thead {
+  font-weight: bold;
+}
+
+td, th {
+  border: 1px solid blue;
+  padding: 1rem;
+  vertical-align: top;
+}
+
+td:nth-child(3) {
+  min-width: 200px;
+}
+
+@media (max-width: 780px) {
+  table, tr {
+    display: block;
+  }
+
+  .visually-hidden {
+    all: unset;
+  }
+}
+
+
