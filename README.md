@@ -1,20 +1,17 @@
-# electron-quick-start
+<div lang="nl">
 
-**Clone and run for a quick way to see Electron in action.**
+# VivaForum draadjes downloader 
 
-This is a minimal Electron application based on the [Quick Start Guide](https://electronjs.org/docs/tutorial/quick-start) within the Electron documentation.
+Je kunt dit programma downloaden via de website [viva-downloader.nl](https://www.viva-downloader.nl). Op deze plek kun je kijken wat er in de code gebeurt, en een kopie maken om bijvoorbeeld de opmaak aan te passen. Uitleg staat hieronder in het Engels, omdat dat de standaard gang van zaken is hier op github.
 
-**Use this app along with the [Electron API Demos](https://electronjs.org/#get-started) app for API code examples to help you get started.**
+Het Viva-forum gaat op 2 augustus offline dus wil je gebruik maken van deze download-tool, doe het dan voor die tijd! Daarna zal ik overwegen dit programma aan te passen zodat je als gebruiker draadjes van andere fora kunt downloaden.
 
-A basic Electron application needs just these files:
+Zie de website [viva-downloader.nl](https://www.viva-downloader.nl) voor uitleg over hoe je de app kunt gebruiken.
 
-- `package.json` - Points to the app's main file and lists its details and dependencies.
-- `main.js` - Starts the app and creates a browser window to render HTML. This is the app's **main process**.
-- `index.html` - A web page to render. This is the app's **renderer process**.
+![Een voorbeeld van wat je ziet als je een topic downloadt](example-downloadfolder.png)
+</div>
 
-You can learn more about each of these components within the [Quick Start Guide](https://electronjs.org/docs/tutorial/quick-start).
-
-## To Use
+## To adapt this app
 
 To clone and run this repository you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
 
