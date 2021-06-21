@@ -2,11 +2,13 @@
 const { app, BrowserWindow } = require("electron");
 const path = require("path");
 
-function createWindow() {
+if (require('electron-squirrel-startup')) return app.quit();
+
+function createWindow () {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 1024,
+    height: 800,
     webPreferences: {
       nodeIntegration: true,
       enableRemoteModule: true
@@ -17,11 +19,11 @@ function createWindow() {
   mainWindow.loadFile("src/index.html");
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools()
+//   mainWindow.webContents.openDevTools()
 
     mainWindow.webContents.on('new-window', function(e, url) {
-    e.preventDefault();
-    require('electron').shell.openExternal(url);
+        e.preventDefault();
+        require('electron').openExternal(url);
     });
 }
 
