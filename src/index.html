@@ -7,23 +7,68 @@
 
   </head>
   <body>
-    <main>
-        <header>
+    <header class="app-header">
+        <div class="container">
             <h1>Download een draadje</h1>
 
             <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
+                <ul role="list">
+                    <li><a href="https://www.viva-downloader.nl" target="_blank" rel="noreferrer nofollow">
+                        <span class="nav_linklabel">Meer uitleg</span></a></li>
+                    <li><a href="https://www.viva-downloader.nl/download?versie" target="_blank" rel="noreferrer nofollow"><span class="nav_linklabel">Download de laatste versie</span></a></li>
+                    <li>
+                        <a href="https://github.com/anneke/vivaforum-draadjes-downloader" target="_blank" rel="noreferrer nofollow">
+                            <img src="iconfinder_287583_github_icon.svg" width="37" height="37" alt="" />
+                            <span class="nav_linklabel">Bekijk op Github</span></a>
+                    </li>
+                </ul>
             </nav>
-        </header>
-
+        </div>
+    </header>
+        
+    <main class="container">
         <form id="download-form">
-            <h2>Form</h2>
+            <h2>Begin met downloaden</h2>
             
             <p>
-            <label for="download_url">Vul hier de URL in van het topic:</label>
+                <label for="download_url">Vul hier de URL in van het topic:<br />
                 <input name="download_url" id="download_url" type="text" required
-                value="https://forum.viva.nl/overig/het-grote-waar-verhuizen-wij-naartoe-topic/list_messages/478805"></p>
+                placeholder="https://forum.viva.nl/entertainment/the-handmaid-s-tale-spoilers-toegestaan/list_messages/412400"></label>
+            </p>
+
+            <button type="submit">Download</button></p>
+        </form>
+
+
+        <form id="old-topic-downloading">
+            
+            <input name="download_old_topic" id="download_old_topic" type="checkbox">
+            <label for="download_old_topic">Lijkt de URL van het topic dat je niet wil downloaden hier niet op, of kun je via de zoekfunctie van Viva een topic niet openen?</label>
+
+            <fieldset>
+                <legend>Probeer een ouder topic te downloaden</legend>
+
+                <ol>
+                    <li>Gebruik de zoekfunctie op https://forum.viva.nl om het topic te vinden.</li>
+                    <li>Wanneer je in de zoekresultaten het draadje ziet dat je wil downloaden, gebruik de rechts-klik en kies "linkadres kopi&euml;ren" (of wat daar op lijkt). Plak de link in een tekstbestandje.</li>
+                    <li>Komt daar een linkadres uit als <code>http://forum.viva.nl/forum/list_messages/363549</code>? Dan gaat het om een oude link die mogelijk niet meer te benaderen is via de website.</li>
+                    <li>Kopieer ook de naam van het topic, bijvoorbeeld "Gierige acties deel VI".</li> 
+                    <li>Haal nu de cijfercode van het linkadres af. In dit voorbeeld is de cijfercode <code></code>363549</code>.</li> 
+                </ol>
+                <p>
+                    <label for="download_topic">Plak hier de naam van het topic:<br />
+                    <input name="download_topic" id="download_topic" type="text" required
+                    placeholder="Gierige acties deel VI"></label>
+                    <span class="explanation"></span>
+                </p>
+                <p>
+                    <label for="download_topic_id">Plak hier de cijfercode:<br />
+                    <input name="download_topic_id" id="download_topic_id" type="text" required
+                    placeholder="363549"></label>
+                    <span class="explanation"></span>
+                </p>
+
+            </fieldset>
 
             <button type="submit">Download</button></p>
         </form>

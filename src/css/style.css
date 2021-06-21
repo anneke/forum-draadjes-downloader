@@ -1,32 +1,59 @@
+@font-face {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url("../fonts/montserrat-v15-latin_cyrillic-ext_cyrillic-700.woff2") format("woff2"),
+         url("../fonts/montserrat-v15-latin_cyrillic-ext_cyrillic-700.woff") format("woff"); 
+}
+
+@font-face {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("../fonts/montserrat-v15-latin_cyrillic-ext_cyrillic-regular.woff2") format("woff2"),
+         url("../fonts/montserrat-v15-latin_cyrillic-ext_cyrillic-regular.woff") format("woff"); 
+}
+
+html {
+    margin: 0;
+    padding: 0;
+  font-size: 16px;
+}
+
 body {
   background: white;
-  padding: 0;
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  font-weight: normal;
+  margin: 0;
 }
 
-main {
+.container {
   max-width: 1024px;
   margin: 0 auto;
+  padding: 1.3rem;
 }
 
-@font-face {
-  font-family: 'Nunito Sans';
-  src:  url('../fonts/NunitoSans-Regular.woff2') format('woff2'),
-        url('../fonts/NunitoSans-Regular.woff') format('woff');
-}
-
-@font-face {
-  font-family: 'Lexend Mega';
-  src:  url('../fonts/LexendMega-Regular.woff2') format('woff2'),
-        url('../fonts/LexendMega-Regular.woff') format('woff');
-}
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Lexend Mega', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
-input, textarea, select {
+input {
   font-family: inherit;
+  width: 100%;
+  padding: .3rem .6rem;
+  border: 1px solid darkblue;
+}
+
+fieldset {
+    display: none;
+}
+
+input[type="checkbox"]:checked ~ fieldset {
+    display: block;
 }
 
 /* helper classes */
@@ -39,47 +66,34 @@ input, textarea, select {
     position: absolute;
     white-space: nowrap;
     width: 1px;
+} 
+
+.app-header {
+    background: #000;
 }
 
-/* forms */
-
-.attention {
-  color:green;
+.app-header .container,
+nav ul,
+nav a {
+    display: flex;
+    align-items: center;
 }
 
-.uhoh {
-  color: red;
+h1 {
+    margin: 0;
+    color: white;
+    font-size: 1.6rem;
 }
 
-/* table */
-table {
-  width: auto;
-  overflow-x: scroll;
-  border-collapse: collapse;
+nav li {
+    list-style-type: none;
 }
 
-thead {
-  font-weight: bold;
+nav a {
+    color: white;
+    margin: 0 1rem;
 }
 
-td, th {
-  border: 1px solid blue;
-  padding: 1rem;
-  vertical-align: top;
+.nav_linklabel {
+    padding: 0 1rem;
 }
-
-td:nth-child(3) {
-  min-width: 200px;
-}
-
-@media (max-width: 780px) {
-  table, tr {
-    display: block;
-  }
-
-  .visually-hidden {
-    all: unset;
-  }
-}
-
-
