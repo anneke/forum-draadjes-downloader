@@ -8,6 +8,7 @@
 const os = require('os');
 const fs = require('fs');
 const scrape = require('website-scraper');
+const SaveToExistingDirectoryPlugin = require('website-scraper-existing-directory');
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 const slugify = require('slugify');
@@ -18,9 +19,19 @@ function handleSubmit(event) {
     event.preventDefault();
 
     clearOutWhatHappened();
-    
-    const download_url = document.getElementById('download_url').value;
-    let pagesDownloaded = 1;
+
+    const download_old_topic = document.getElementById('download_old_topic');
+    const download_topic = document.getElementById('download_topic').value;
+    const download_topic_id = document.getElementById('download_topic_id').value;
+
+    if (download_old_topic.checked) {
+        // if the user wants to download an older topic, change the download URL
+        download_url = `https://forum.viva.nl/geld-recht/${slugify(download_topic)}/list_messages/${slugify(download_topic_id)}`;
+    } else {
+        download_url_value = document.getElementById('download_url').value;
+        download_url = download_url_value.split('?')[0];
+    }
+
     let timesRun = 0;
 
     async function prepareDownload() {
@@ -34,18 +45,16 @@ function handleSubmit(event) {
             const text = await response.text();
             const dom = await new JSDOM(text);
 
-            const pageTitle = await dom.window.document.querySelector("h1").textContent;
+            const pageTitle = await dom.window.document.querySelector("h1").textContent.trim();
             const numberOfPages = await dom.window.document.querySelector(".pagination__nav li:nth-last-child(2) a").textContent;
             const dateAndTime = await dom.window.document.querySelector(".meta__left > span:first-child").innerHTML;
-            
+
             // remove any spaces from the string dateAndTime, 
             // and then take off the last 6 characters for just the date
             const justTheDate = dateAndTime.replace(/ /g, '').slice(0, -6);
-            
-            const removeSpacesFromTitle = pageTitle.slice(1, -1);
 
             let threadInfo = {
-                title: removeSpacesFromTitle,
+                title: pageTitle,
                 sanitizedTitle: slugify(justTheDate) + '_' + slugify(pageTitle),
                 numberOfPages: parseInt(numberOfPages),
             };
@@ -53,68 +62,82 @@ function handleSubmit(event) {
             return threadInfo;
 
         } catch (err) {
-            updateWhatHappened('Er ging iets mis met het ophalen van informatie over het draadje, probeer het later nog eens!');
+            updateWhatHappened('Er ging iets mis met het ophalen van informatie over het draadje');
+            setTimeout(prepareDownload, 3000);
         }
     };
  
     prepareDownload().then((value) => {
-        updateWhatHappened(`Verbinding gemaakt met de server!`, 1000);
 
-        updateWhatHappened(`Aantal pagina's tellen...`, 3000);
+        const numberOfPagesDownloaded = fs.readdirSync(homedir + '/' + value.sanitizedTitle + '/').length;
+          
+        if (timesRun == 0) {
+            updateWhatHappened(`Verbinding gemaakt met de server!`, 1000);
 
-        if (value.numberOfPages >= 40) {
-            updateWhatHappened(`Oef, daar is wat afgepraat!`, 6000);
-        }
-        
-        updateWhatHappened(`Klaar om het draadje "${value.title}" te downloaden...`, 9000);
+            updateWhatHappened(`Klaar om het draadje "${value.title}" te downloaden...`, 3000);
 
-        if (value.numberOfPages >= 30) {
-            updateWhatHappened(`Dit draadje telt maar liefst ${value.numberOfPages} pagina's. Check je straks of dat aantal klopt met wat er gedownload is?`, 12000);
-        } else {
-            updateWhatHappened(`Dit draadje telt ${value.numberOfPages} pagina's. Controleer je zo even of dat klopt?`, 12000);
+            updateWhatHappened(`Aantal pagina's tellen...`, 6000);
+
+            if (value.numberOfPages >= 40) {
+                updateWhatHappened(`Oef, daar is wat afgepraat!`, 9000);
+            }
+
+            if (value.numberOfPages >= 100) {
+                updateWhatHappened(`Dit draadje telt maar liefst ${value.numberOfPages} pagina's. Ik heb waarschijnlijk wat meer tijd nodig om alles te downloaden en te verwerken!`, 12000);
+            } else {
+                updateWhatHappened(`Dit draadje telt ${value.numberOfPages} pagina's. Controleer je zo even of dat klopt?`, 12000);
+            }
         }
 
         function downloadAllThePages() {
-            updateWhatHappened(`Bezig met downloaden...`, 15000);
-
             const allThreadPages = value.numberOfPages + 1;
 
             // loop over all the pages, and download the associated link
             // in a seperate folder
             for (let i = 1; i < allThreadPages; i++) {
-                let download_folder = homedir + '/' + value.sanitizedTitle + '/' + i + '/';
 
+                // check if we're in the last iteration
                 if (value.numberOfPages == i) {
-                    if (pagesDownloaded != value.numberOfPages) {
-                        updateWhatHappened(`Even checken of alles er is...`, 16000);
+                    updateWhatHappened(`Even checken of alles er is...`, 16000);
+
+                    // if the number of pages downloaded doesn't match the 
+                    // number of pages in the forum thread, we must have
+                    // missed a few; 
+                    if (numberOfPagesDownloaded == value.numberOfPages) {
 
                         timesRun += 1;
-                        if (timesRun <= 2) {
-                            downloadAllThePages();
+                        if (timesRun <= 3) {
+                            updateWhatHappened(`Ik denk dat er nog wat mist, ik kijk nog een keer.`, 16000);
+                            setTimeout(downloadAllThePages, 20000);
+                        }
+
+                        if (timesRun == 3) {
+                            if (value.numberOfPages >= 100) {
+                                updateWhatHappened(`Omdat het zoveel pagina's waren doe ik nog een laatste controle!.`, 19000);
+                                setTimeout(downloadAllThePages, 30000);
+                            }
                         }
                     } else {
-                        updateWhatHappened(`Ik denk dat we er zijn! Check je gebruikersmap voor het mapje vivaforum-downloads.`, 18000);
+                        updateWhatHappened(`Ik denk dat we er zijn! Check je gebruikersmap voor het mapje vivaforum-downloads.`, 33000, "succes.svg");
                     }
-                } else {
-                    pagesDownloaded += 1;
+                } else {                  
+                    let download_folder = homedir + '/' + value.sanitizedTitle + '/';
 
                     // if we're not at the last iteration, download the page 
                     // and it's assets if the folder doesn't yet exist
-                    if (!fs.existsSync(download_folder)) {
+                    if (!fs.existsSync(download_folder + `pagina-${i}.html`)) {
                         const options = {
                             urls: download_url + '/' + i,
-                            directory: download_folder
+                            directory: download_folder,
+                            defaultFilename: `pagina-${i}.html`,
+                            plugins: [ new SaveToExistingDirectoryPlugin() ]
                         };
 
                         scrape(options).then((result) => {
+                            console.log(result);
                         });
 
-                        updateWhatHappened(`Pagina ${i} gedownload...`, 15000);
-                    } else {
-                        if (timesRun == 1) {
-                            updateWhatHappened(`Deze (pagina ${i}) heb ik al...`, 15700);
-                        }
-                    }
+                    } 
                 }
             }
         }
@@ -126,11 +149,20 @@ function handleSubmit(event) {
 const form = document.querySelector('form#download-form');
 form.addEventListener('submit', handleSubmit);
 
-function updateWhatHappened(updateUser, timeDelay) {
+const formOld = document.querySelector('form#old-topic-downloading');
+formOld.addEventListener('submit', handleSubmit);
+
+function updateWhatHappened(updateUser, timeDelay, icon = "") {
     function addUpdate() {
+        clearOutWhatHappened();
         const paragraph = document.createElement("p");
-        paragraph.innerHTML = updateUser;
-        paragraph.classList = 'fadeIn';
+        if (icon != "") {
+            paragraph.innerHTML =
+                `<img src="${icon}" alt="" width="20" height="20" style="margin-right: .5rem; float: left;">` + updateUser;
+        } else {
+            paragraph.innerHTML = updateUser;
+        }
+            
         document.getElementById("statusUpdate").appendChild(paragraph);
     }
 
