@@ -43,7 +43,8 @@
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "vf-draadjes-downloader"
+            "name": "vf-draadjes-downloader",
+            "icon": "./src/assets/appIcon.ico"
           }
         },
         {
@@ -56,7 +57,8 @@
           "name": "@electron-forge/maker-dmg",
           "config": {
             "name": "vf-draadjes-downloader",
-            "format": "ULFO"
+            "format": "ULFO",
+            "icon": "./src/assets/appIcon.icns"
           }
         },
         {
