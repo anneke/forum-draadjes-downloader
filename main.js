@@ -8,8 +8,11 @@ function createWindow () {
     width: 1024,
     height: 800,
     webPreferences: {
-      nodeIntegration: true,
-      enableRemoteModule: true
+        nodeIntegration: true,
+        enableRemoteModule: true,
+        webSecurity: false,
+        defaultFontFamily: 'sansSerif',
+        devTools: false
     }
   });
 
