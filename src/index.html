@@ -8,75 +8,58 @@
   </head>
   <body>
     <header class="app-header">
-        <div class="container">
-            <h1>Download een draadje</h1>
+        <div class="top-bar">
+            <div class="container">
+                <h1>Download een recent draadje</h1>
 
-            <nav>
-                <ul role="list">
-                    <li><a href="https://www.viva-downloader.nl" target="_blank" rel="noreferrer nofollow">
-                        <span class="nav_linklabel">Meer uitleg</span></a></li>
-                    <li><a href="https://www.viva-downloader.nl/download?versie" target="_blank" rel="noreferrer nofollow"><span class="nav_linklabel">Download de laatste versie</span></a></li>
-                    <li>
-                        <a href="https://github.com/anneke/vivaforum-draadjes-downloader" target="_blank" rel="noreferrer nofollow">
-                            <img src="iconfinder_287583_github_icon.svg" width="37" height="37" alt="" />
-                            <span class="nav_linklabel">Bekijk op Github</span></a>
-                    </li>
-                </ul>
-            </nav>
+                <nav class="main_nav">
+                    <ul role="list">
+                        <li>
+                            <a href="https://www.viva-downloader.nl" target="_blank" rel="noreferrer nofollow">
+                            <span class="nav_linklabel">Meer uitleg</span></a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/anneke/vivaforum-draadjes-downloader" target="_blank" rel="noreferrer nofollow">
+                                <img src="iconfinder_287583_github_icon.svg" width="37" height="37" alt="" />
+                                <span class="nav_linklabel">Github</span></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
         </div>
+        <!-- <div class="container">
+            <nav class="sub_nav">
+                <a href="index.html">Download een draadje</a>
+
+                <a href="index.html">Download een oud draadje</a>
+            </nav>
+        </div> -->
     </header>
         
     <main class="container">
         <form id="download-form">
             <h2>Begin met downloaden</h2>
+
+            <input type="hidden" name="whichForm" id="whichForm" value="formDefault" />
             
             <p>
-                <label for="download_url">Vul hier de URL in van het topic:<br />
-                <input name="download_url" id="download_url" type="text" required
-                placeholder="https://forum.viva.nl/entertainment/the-handmaid-s-tale-spoilers-toegestaan/list_messages/412400"></label>
+                <label for="download_url">
+                    <span class="field-description">Plak hier het linkadres (de URL) van het draadje:</span><br />
+                    <input name="download_url" id="download_url" type="text" required>
+                    <span class="field-explanation">
+                        <span class="visually-hidden">Uitleg:</span>
+                        Ga naar de eerste pagina van het topic en kopieer het linkadres.<br />
+                        Bijvoorbeeld: https://forum.viva.nl/reizen/weekendje-zeeland/list_messages/479035 .<br />
+                        <a href="download-old.html">Zie je in de link de titel niet terug van het draadje?</a>
+                    </span>
+                </label>
             </p>
 
             <button type="submit">Download</button></p>
         </form>
 
+        <div id="statusUpdate" aria-live="polite"></div>
 
-        <form id="old-topic-downloading">
-            
-            <input name="download_old_topic" id="download_old_topic" type="checkbox">
-            <label for="download_old_topic">Lijkt de URL van het topic dat je niet wil downloaden hier niet op, of kun je via de zoekfunctie van Viva een topic niet openen?</label>
-
-            <fieldset>
-                <legend>Probeer een ouder topic te downloaden</legend>
-
-                <ol>
-                    <li>Gebruik de zoekfunctie op https://forum.viva.nl om het topic te vinden.</li>
-                    <li>Wanneer je in de zoekresultaten het draadje ziet dat je wil downloaden, gebruik de rechts-klik en kies "linkadres kopi&euml;ren" (of wat daar op lijkt). Plak de link in een tekstbestandje.</li>
-                    <li>Komt daar een linkadres uit als <code>http://forum.viva.nl/forum/list_messages/363549</code>? Dan gaat het om een oude link die mogelijk niet meer te benaderen is via de website.</li>
-                    <li>Kopieer ook de naam van het topic, bijvoorbeeld "Gierige acties deel VI".</li> 
-                    <li>Haal nu de cijfercode van het linkadres af. In dit voorbeeld is de cijfercode <code></code>363549</code>.</li> 
-                </ol>
-                <p>
-                    <label for="download_topic">Plak hier de naam van het topic:<br />
-                    <input name="download_topic" id="download_topic" type="text" required
-                    placeholder="Gierige acties deel VI"></label>
-                    <span class="explanation"></span>
-                </p>
-                <p>
-                    <label for="download_topic_id">Plak hier de cijfercode:<br />
-                    <input name="download_topic_id" id="download_topic_id" type="text" required
-                    placeholder="363549"></label>
-                    <span class="explanation"></span>
-                </p>
-
-            </fieldset>
-
-            <button type="submit">Download</button></p>
-        </form>
-
-        <div id="statusUpdate" aria-live="polite">
-
-        </div>
-
-    <script src="./renderer.js"></script>
+        <script src="./renderer.js"></script>
   </body>
 </html>

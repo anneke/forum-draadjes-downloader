@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>VivaForum draadjes-downloader</title>
+    <link rel="stylesheet" as="style" href="css/style.css">
+
+  </head>
+  <body>
+    <header class="app-header">
+        <div class="top-bar">
+            <div class="container">
+                <h1>Download een recent draadje</h1>
+
+                <nav class="main_nav">
+                    <ul role="list">
+                        <li>
+                            <a href="https://www.viva-downloader.nl" target="_blank" rel="noreferrer nofollow">
+                            <span class="nav_linklabel">Meer uitleg</span></a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/anneke/vivaforum-draadjes-downloader" target="_blank" rel="noreferrer nofollow">
+                                <img src="iconfinder_287583_github_icon.svg" width="37" height="37" alt="" />
+                                <span class="nav_linklabel">Github</span></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+        
+    <main class="container">
+        <a href="index.html">&laquo; Terug naar de homepage</a>
+
+        <form id="download-form">
+
+            <h2>Ouder draadje downloaden</h2>
+
+            <input type="hidden" name="whichForm" id="whichForm" value="formOldTopics" />
+
+            <p>Wil je graag een draadje downloaden dat uit de Viva-zoekresultaten omhoog komt, maar wat (als je er op klikt) je niet het draadje laat zien? Je kunt langs dit formulier misschien toch het draadje te pakken krijgen. Let op: dit werkt niet altijd.</p>
+
+            <p>Dit werkt voor links die er zo uit zien: <code>http://forum.viva.nl/forum/list_messages/363549</code></p>
+
+            <p>
+                <label for="download_topic">
+                    <span class="field-description">1. Plak hier de naam van het topic:</span><br />
+                <input name="download_topic" id="download_topic" type="text" required
+                placeholder="Gierige acties deel VI"></label>
+                <span class="field-explanation">Bijvoorbeeld: <code>Gierige acties deel VI</code></span>
+            </p>
+            <p>
+                <label for="download_topic_category">
+                    <span class="field-description">2. Selecteer de naam van de pijler:</span><br />
+
+                    <select name="download_topic_category" id="download_topic_category">
+                        <option value="">-- Kies een pijler --</option>
+                        <option value="relaties">Relaties</option>
+                        <option value="werk-studie">Werk & Studie</option>
+                        <option value="coronavirus-covid-19">Coronavirus Covid-19</option>
+                        <option value="geld-recht">Geld & Recht</option>
+                        <option value="reizen">Reizen</option>
+                        <option value="seks">Seks</option>
+                        <option value="gezondheid">Gezondheid</option>
+                        <option value="overig">Overig</option>
+                        <option value="actueel">Actueel</option>
+                        <option value="lijf-lijn">Lijf & Lijn</option>
+                        <option value="entertainment">Entertainment</option>
+                        <option value="kinderen">Kinderen</option>
+                        <option value="digi">Digi</option>
+                        <option value="eten">Eten</option>
+                        <option value="mode-beauty">Mode & Beauty</option>
+                        <option value="psyche">Psyche</option>
+                        <option value="thuis">Thuis</option>
+                        <option value="zwanger">Zwanger</option>
+                        <option value="sport">Sport</option>
+                        <option value="klussen">Klussen</option>
+                        <optgroup label="Prikbord">
+                            <option value="contact">Contact</option>
+                            <option value="viva-zoekt">Viva zoekt</option>
+                            <option value="aangeboden">Aangeboden</option>
+                            <option value="gevraagd">Gevraagd</option>
+                        </optgroup>
+                        <optgroup label="Tips">
+                            <option value="horen">Horen</option>
+                            <option value="doen">Doen</option>
+                            <option value="zien">Zien</option>
+                            <option value="lezen">Lezen</option>
+                        </optgroup>
+                    </select>
+                </label>
+            </p>
+            <p>
+                <label for="download_topic_id">
+                    <span class="field-description">3. Plak hier de cijfercode:</span><br />
+                <input name="download_topic_id" id="download_topic_id" type="text" required
+                placeholder="363549"></label>
+                <span class="field-explanation">Een zes-cijferig getal, bijvoorbeeld: <code>363549</code></span>
+            </p>
+
+            <p>
+                <details class="field-explanation">
+                    <summary>Toon uitgebreide uitleg</summary>
+                    <ol>
+                        <li>Gebruik de zoekfunctie op https://forum.viva.nl om het topic te vinden.</li>
+                        <li>Wanneer je in de zoekresultaten het draadje ziet dat je wil downloaden, gebruik de rechts-klik van je muis en kies "linkadres kopi&euml;ren" (of wat daar op lijkt). Plak de link in een tekstbestandje. Ik verwacht dat de link die je plakt er zo uit ziet:<br /><code>http://forum.viva.nl/forum/list_messages/363549</code> </li>
+                        <li>Kopieer ook de naam van het draadje, bijvoorbeeld "Gierige acties deel VI", en noteer de pijler.</li> 
+                        <li>Haal nu de cijfercode dat aan het eind van het linkadres staat. In dit voorbeeld is de cijfercode <code></code>363549</code>.</li> 
+                    </ol>
+                </details> 
+            </p>
+
+            <button type="submit">Download</button></p>
+        </form>
+
+        <div id="attemptURL" aria-live="polite">
+
+        </div>
+
+        <div id="statusUpdate" aria-live="polite">
+
+        </div>
+
+    <script src="./renderer.js"></script>
+  </body>
+</html>
