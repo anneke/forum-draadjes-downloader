@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>Vivaforum draadjes downloader - </title>
+    <link rel="stylesheet" href="/assets/css/main.css">
+  </head>
+  <body>
+
+    <header class="app-header">
+        <div class="top-bar">
+            <div class="container">
+                <h1>Download draadjes van het Vivaforum</h1>
+
+                <nav class="main_nav">
+                    <ul role="list">
+                        <li>
+                            <a href="/download">
+                            <span class="nav_linklabel">Download</span></a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/anneke/vivaforum-draadjes-downloader" target="_blank" rel="noreferrer nofollow">
+                                <img src="iconfinder_287583_github_icon.svg" width="37" height="37" alt="" />
+                                <span class="nav_linklabel">Github</span></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <!-- <div class="container">
+            <nav class="sub_nav">
+                <a href="index.html">Download een draadje</a>
+
+                <a href="index.html">Download een oud draadje</a>
+            </nav>
+        </div> -->
+    </header>
+
+    <main>
+        <div class="container">
+            <h2 id="bewaar-je-herinneringen-aan-het-vivaforum">Bewaar je herinneringen aan het Vivaforum</h2>
+
+<p>Meelezen met het Vivaforum zorgde er voor dat je je soms minder alleen voelde. Je kwam er voor vermaak, of om geconfronteerd te worden met jezelf en je eigenaardigheden. Het was misschien je weinige troost als het ‘echte leven’ moeilijk was.</p>
+
+<p>Om dit alles dat het Vivaforum was niet zomaar te laten verdwijnen, archiveert de <a href="https://www.registerwebarchieven.nl/register/30611">Koninklijke Bibliotheek</a> al enige tijd jaarlijks het Vivaforum. Maar om het bewaren van draadjes (ook wel topics genoemd) zo laagdrempelig mogelijk te maken, is er nu de <strong>Vivaforum draadjes downloader</strong>!</p>
+
+<section class="download">
+<h2>Download het programma</h2>
+<p>Je kunt hier de software downloaden en installeren voor het systeem waar je computer mee werkt.</p>
+<p><strong id="systemUsed"></strong></p>
+
+<div class="download_boxes">
+    <article id="windowsDownload" class="download_version">
+        <img src="assets/img/windows.png" alt="" />
+        <a href="/downloads/vf-draadjes-downloader-v1_0_0.exe" download="">Download de Windows versie</a>
+    </article>
+
+    <article id="macDownload" class="download_version">
+        <img src="assets/img/macos.png" alt="" />
+        <a href="/downloads/vf-draadjes-downloader-v1_0_0.dmg" download="">Download de Mac versie</a>
+    </article>
+</div>
+</section>
+
+<section>
+
+  <h2 id="uitleg-bij-installatie">Uitleg bij installatie</h2>
+
+  <p>Hoe werkt het programma? Nou, hopelijk zo eenvoudig mogelijk!</p>
+
+  <ol>
+    <li>je plakt de link van een topic in een invoerveld</li>
+    <li>je drukt op enter of de knop ‘Download’</li>
+    <li>het programma maakt een mapje ‘viva-downloads’ in je gebruikersmap, met daarin een mapje met het topic en alle daarbij horende pagina’s, afbeeldingen en layout.</li>
+  </ol>
+
+  <p><img src="/assets/img/example-downloadfolder.png" alt="Een voorbeeld van de map die wordt aangemaakt" width="500" /></p>
+
+</section>
+
+<section>
+
+  <h2 id="werkt-er-iets-niet">Werkt er iets niet?</h2>
+
+  <p>Dit programma is in een paar dagen tijd in elkaar gezet, en kan bugs vertonen! Downloaden en installeren is op eigen risico.</p>
+
+  <p>Sommige links van het Vivaforum kunnen niet zo eenvoudig worden gedownload. Soms werkt een link ook niet eens in de browser. Het gaat dan bijvoorbeeld om een link waar de topictitel niet in terug te lezen is. Je moet dan helaas zelf doorklikken en informatie invoeren zodat de app alsnog kan proberen je te helpen. Hier staat in de app een uitleg voor.</p>
+
+  <p>Gebeurt er iets anders in het programma wat je niet verwacht, <a href="mailto:mail@annekesinnema.nl?subject=Vivaforum draadjes downloader">mail dan naar Anneke</a> met wat je deed, wat je verwachtte dat er zou gebeuren en wat er ook echt gebeurde. Dan zal ik mijn best doen om het probleem te verhelpen in de volgende versie!</p>
+
+</section>
+<section>
+
+  <h2 id="werkt-het-allemaal-wl">Werkt het allemaal wél?</h2>
+
+  <p>Ben je blij met dit programma en wil je me graag bedanken, dan kun je <a href="https://paymentlink.mollie.com/payment/fh0PDA6ul9P7QcnASwBDM/">met iDeal een klein bedrag naar me overmaken</a>. Het hoeft niet, maar ik ben blij met elke euro! Het zegt vooral iets over je waardering voor de moeite die ik hier in gestoken heb.</p>
+
+</section>
+
+<section>
+
+  <h2 id="hoe-is-dit-gebouwd">Hoe is dit gebouwd?</h2>
+
+  <p>Ik (<a href="https://www.linkedin.com/in/annekesinnema/">Anneke Sinnema</a>) heb gebruik gemaakt van <a href="https://www.electronjs.org/">Electron</a> om een cross-platform applicatie te bouwen met HTML, CSS en JavaScript. Want ik ben eigenlijk een webdeveloper! Geen designer, zoals je kunt zien aan deze pagina 😂. De code van deze website kun je vinden op Github. De code van de app kun je ook op Github vinden. Ben je zelf handig met code, dan kun je langs die weg een kopie maken van deze site/software of aanvullingen doen.</p>
+
+  <p>Met dank aan Kilian Valkhof voor zijn hulp bij het inrichten van het buildproces. Hij is de maker van <a href="https://polypane.app/">Polypane</a>, een browser voor developers.</p>
+
+</section>
+
+        </div>
+    </main>
+
+    <script>
+        windowsDownload = document.getElementById("windowsDownload");
+        macDownload = document.getElementById("macDownload");
+        fillSpan = document.getElementById("systemUsed");
+
+        if (navigator.appVersion.indexOf("Win") != -1) {
+            tellUserSystemUsed = "Het lijkt er op dat je Windows gebruikt.";
+            windowsDownload.style.border = "thick solid #ffffff";
+            windowsDownload.style.background = "#ffffff";
+        }
+        else if (navigator.appVersion.indexOf("Mac") != -1) {
+            tellUserSystemUsed = "Het lijkt er op dat je een Mac gebruikt."; 
+            macDownload.style.border = "thick solid #ffffff";
+            macDownload.style.background = "#ffffff";
+        } else {
+            tellUserSystemUsed = "Helaas lijkt het er op dat je geen Windows of MacOS gebruikt, of niet op een pc naar deze pagina kijkt."
+        }
+  
+        fillSpan.innerHTML = tellUserSystemUsed;
+    </script>
+
+  </body>
+</html>

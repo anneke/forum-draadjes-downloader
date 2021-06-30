@@ -1,0 +1,55 @@
+@font-face { font-family: "Montserrat"; font-style: normal; font-weight: 700; font-display: swap; src: url("../fonts/montserrat-v15-latin_cyrillic-ext_cyrillic-700.woff2") format("woff2"), url("../fonts/montserrat-v15-latin_cyrillic-ext_cyrillic-700.woff") format("woff"); }
+@font-face { font-family: "Montserrat"; font-style: normal; font-weight: 400; font-display: swap; src: url("../fonts/montserrat-v15-latin_cyrillic-ext_cyrillic-regular.woff2") format("woff2"), url("../fonts/montserrat-v15-latin_cyrillic-ext_cyrillic-regular.woff") format("woff"); }
+html { margin: 0; padding: 0; font-size: 16px; }
+
+body { background-color: #f2f2f2; color: #333333; font-family: "Montserrat", sans-serif; font-size: 1rem; line-height: 1.7; font-weight: normal; margin: 0; }
+
+a { color: #c95d60; }
+
+* { box-sizing: border-box; }
+
+.download_version { border: thick solid transparent; position: relative; padding: 1rem; text-align: center; display: flex; flex-direction: column; align-items: center; }
+.download_version a { display: block; }
+.download_version a:after { content: " "; position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+.download_version img { max-width: 100px; max-height: 100px; width: auto; display: block; height: 100%; margin-bottom: 2rem; }
+.download_version:hover, .download_version:focus { opacity: 1; }
+
+.download { padding: 1rem; margin: 2rem 0; background-color: #f2f2f2; text-align: center; }
+.download h2 { margin-top: 0; }
+.download p { margin: 0 auto 2rem; max-width: 100%; }
+
+.download_boxes { display: flex; justify-content: space-around; padding: 0 15%; }
+
+.container { max-width: 1024px; margin: 0 auto; padding: 0 1.3rem; }
+main .container { background-color: white; padding: 1.5rem 1.3rem; }
+
+.top-bar { background: #000; width: 100%; }
+
+h1, h2, h3, h4, h5, h6 { font-family: "Montserrat", sans-serif; }
+
+p, li { max-width: 72ch; }
+
+/* helper classes */
+.visually-hidden { clip: rect(0 0 0 0); clip-path: inset(50%); height: 1px; overflow: hidden; position: absolute; white-space: nowrap; width: 1px; }
+
+.app-header .container, nav ul, nav a { display: flex; align-items: center; }
+
+h1 { margin: 0; color: white; font-size: 1.6rem; }
+
+h2 { font-size: 1.4rem; }
+
+nav li { list-style-type: none; }
+
+.main_nav a { color: white; margin: 0 1rem; }
+
+.sub_nav { display: flex; width: 100%; justify-content: space-around; }
+
+.sub_nav a { border-bottom: 1px solid black; display: block; text-align: center; width: 100%; padding: 1rem 0; }
+
+.sub_nav a:first-child { border-right: 1px solid black; }
+
+.nav_linklabel { padding: 0 1rem; }
+
+button { padding: 0.7em 1.7em; margin: 0 0.3em 0.3em 0; border: 1px solid white; border-radius: 0.4rem; box-sizing: border-box; text-decoration: none; font-family: "Montserrat", sans-serif; font-weight: 400; color: #ffffff; background-color: #3369ff; box-shadow: inset 0 -0.6em 1em -0.35em rgba(0, 0, 0, 0.17), inset 0 0.6em 2em -0.3em rgba(255, 255, 255, 0.15), inset 0 0 0em 0.05em rgba(255, 255, 255, 0.12); text-align: center; position: relative; }
+
+button:hover, button:focus { box-shadow: inset 0 0.6em 2em -0.3em rgba(0, 0, 0, 0.15), inset 0 0 0em 0.05em rgba(255, 255, 255, 0.12); }

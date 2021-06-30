@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>{{ page.title }} - {{ site.title }}</title>
+    <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+  </head>
+  <body>
+
+    <header class="app-header">
+        <div class="top-bar">
+            <div class="container">
+                <h1>Download draadjes van het Vivaforum</h1>
+
+                <nav class="main_nav">
+                    <ul role="list">
+                        <li>
+                            <a href="/download">
+                            <span class="nav_linklabel">Download</span></a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/anneke/vivaforum-draadjes-downloader" target="_blank" rel="noreferrer nofollow">
+                                <img src="iconfinder_287583_github_icon.svg" width="37" height="37" alt="" />
+                                <span class="nav_linklabel">Github</span></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <!-- <div class="container">
+            <nav class="sub_nav">
+                <a href="index.html">Download een draadje</a>
+
+                <a href="index.html">Download een oud draadje</a>
+            </nav>
+        </div> -->
+    </header>
+
+    <main>
+        <div class="container">
+            {{ content }}
+        </div>
+    </main>
+
+    <script>
+        windowsDownload = document.getElementById("windowsDownload");
+        macDownload = document.getElementById("macDownload");
+        fillSpan = document.getElementById("systemUsed");
+
+        if (navigator.appVersion.indexOf("Win") != -1) {
+            tellUserSystemUsed = "Het lijkt er op dat je Windows gebruikt.";
+            windowsDownload.style.border = "thick solid #ffffff";
+            windowsDownload.style.background = "#ffffff";
+        }
+        else if (navigator.appVersion.indexOf("Mac") != -1) {
+            tellUserSystemUsed = "Het lijkt er op dat je een Mac gebruikt."; 
+            macDownload.style.border = "thick solid #ffffff";
+            macDownload.style.background = "#ffffff";
+        } else {
+            tellUserSystemUsed = "Helaas lijkt het er op dat je geen Windows of MacOS gebruikt, of niet op een pc naar deze pagina kijkt."
+        }
+  
+        fillSpan.innerHTML = tellUserSystemUsed;
+    </script>
+
+  </body>
+</html>
