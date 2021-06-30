@@ -25,8 +25,8 @@ function handleSubmit(event) {
     const formUsed = document.getElementById('whichForm').value;
 
     if (formUsed == "formDefault") {
-        download_url_value = document.getElementById('download_url').value;
-        download_url = download_url_value.split('?')[0];
+        download_url = document.getElementById('download_url').value;
+        // download_url_clean = download_url_value.split('?')[0];
     } else {
         const download_topic = document.getElementById('download_topic').value;
         const download_topic_category = document.getElementById('download_topic_category').value;
@@ -37,6 +37,8 @@ function handleSubmit(event) {
 
         const attemptUrl = document.getElementById("attemptURL");
         attemptUrl.textContent = download_url;
+
+        console.log(download_url);
     }
 
     async function prepareDownload() {
@@ -44,15 +46,26 @@ function handleSubmit(event) {
             const response = await fetch(download_url);
 
             if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
+                updateWhatHappened('Er ging iets mis met het ophalen van informatie over het draadje. Mogelijk is het een probleem met de server van het vivaforum.');
+                console.error(response.status);
             }
-                        
+            
             const text = await response.text();
             const dom = await new JSDOM(text);
+        
+            function numberOfPagesToDownload() {
+                if (numberOfMessages > 25) {
+                    getMessageNumber = dom.window.document.querySelector(".pagination__nav li:nth-last-child(2) a").textContent;
+                    return getMessageNumber;
+                } else {
+                    return 1;
+                }
+            }
 
-            const pageTitle = await dom.window.document.querySelector("h1").textContent.trim();
-            const numberOfPages = await dom.window.document.querySelector(".pagination__nav li:nth-last-child(2) a").textContent;
-            const dateAndTime = await dom.window.document.querySelector(".meta__left > span:first-child").innerHTML;
+            const pageTitle = dom.window.document.querySelector("h1").textContent.trim();
+            const numberOfMessages = dom.window.document.querySelector(".thread__meta .meta__left span:last-child").textContent.trim().slice(0, -10);
+            const dateAndTime = dom.window.document.querySelector(".meta__left > span:first-child").innerHTML;
+            let numberOfPages = numberOfPagesToDownload();
 
             // remove any spaces from the string dateAndTime, 
             // and then take off the last 6 characters for just the date
@@ -65,10 +78,10 @@ function handleSubmit(event) {
             };
     
             return threadInfo;
-
+            
         } catch (err) {
-            updateWhatHappened('Er ging iets mis met het ophalen van informatie over het draadje. Mogelijk is het een probleem met de server van het vivaforum. Ik probeer het nog een keer.', 3000);
-            setTimeout(prepareDownload, 3000);
+            updateWhatHappened('Er ging iets mis met het ophalen van informatie over het draadje. Mogelijk is het een probleem met de server van het vivaforum. Ik probeer het nog een keer.', 1000);
+            // setTimeout(prepareDownload, 3000);
         }
     };
  
@@ -91,7 +104,6 @@ function handleSubmit(event) {
                             updateWhatHappened(`Ik heb eerder al ${numberOfPagesDownloaded.length} pagina's gedownload. Ik ga nu de andere pagina's downloaden.`, 1000);
                             timesRun += 1;
                         }
-                        // downloadAllThePages();
                     } else {
                         updateWhatHappened(`Ik denk dat we er zijn! Check je gebruikersmap voor het mapje vivaforum-downloads.`, 3000, "succes.svg");
                         return
@@ -112,8 +124,14 @@ function handleSubmit(event) {
                         if (numberOfPagesDownloaded.length < value.numberOfPages) {
                             updateWhatHappened(`Nog steeds aan het downloaden...`, 20000);
                         }
-                    } else {
+                    }
+                    
+                    if (value.numberOfPages >= 2 && value.numberOfPages <= 39) {
                         updateWhatHappened(`Dit draadje telt ${value.numberOfPages} pagina's.`, 12000);
+                    }
+                    
+                    if (value.numberOfPages = 1) {
+                        updateWhatHappened(`Dit draadje telt ${value.numberOfPages} pagina.`, 12000);
                     }
                 }
                     
