@@ -2,8 +2,6 @@
 const { app, BrowserWindow } = require("electron");
 const path = require("path");
 
-if (require('electron-squirrel-startup')) return app.quit();
-
 function createWindow () {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
@@ -21,10 +19,10 @@ function createWindow () {
   // Open the DevTools.
 //   mainWindow.webContents.openDevTools()
 
-    mainWindow.webContents.on('new-window', function(e, url) {
-        e.preventDefault();
-        require('electron').openExternal(url);
-    });
+    // mainWindow.webContents.on('new-window', function(e, url) {
+    //     e.preventDefault();
+    //     require('electron').openExternal(url);
+    // });
 }
 
 // This method will be called when Electron has finished
