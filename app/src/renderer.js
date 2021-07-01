@@ -25,9 +25,23 @@ function handleSubmit(event) {
     const formUsed = document.getElementById('whichForm').value;
 
     if (formUsed == "formDefault") {
+        let vivaURL = /^https:\/\/forum\.viva\.nl\//;
+        let oldURL = /^https:\/\/forum\.viva\.nl\/forum\/list_messages\//;
+
         download_url_dirty = document.getElementById('download_url').value;
-        let regex = /[0-9]{1,3}$/;
-        download_url = download_url_dirty.split(regex)[0].split('?')[0];
+
+        if (download_url_dirty.match(vivaURL)) {
+            let regex = /\/[0-9]{1,3}$/; // AHA
+            download_url = download_url_dirty.split(regex)[0].split('?')[0];
+        } else {
+            updateWhatHappened('Is dit wel een link naar het Vivaforum?!', 0);
+            download_url = null;
+        }
+
+        if (download_url.match(oldURL)) {
+            updateWhatHappened('Je hebt een link ingevoerd die niet goed werkt. <a href="download-old.html">Je kunt het met dit formulier opnieuw proberen.</a>', 0);
+            return;
+        }
     } else {
         const download_topic = document.getElementById('download_topic').value;
         const download_topic_category = document.getElementById('download_topic_category').value;
@@ -42,15 +56,14 @@ function handleSubmit(event) {
 
     async function prepareDownload() {
         try {
-            const response = await fetch(download_url);
 
-            if (!response.ok) {
-                updateWhatHappened('Er ging iets mis met het ophalen van informatie over het draadje. Ik kan geen verbinding maken met de server van het Vivaforum. Is het al 2 augustus geweest? 😭');
-                console.error(response.status);
-            }
-            
+            const response = await fetch(download_url);
             const text = await response.text();
             const dom = await new JSDOM(text);
+
+            if (!response.ok) {
+                updateWhatHappened('Er ging iets mis met het ophalen van informatie over het draadje. Ik kan geen verbinding maken met de server van het Vivaforum. Is het al 2 augustus geweest? 😭', 1000);
+            }
         
             function numberOfPagesToDownload() {
                 if (numberOfMessages > 25) {
@@ -80,7 +93,6 @@ function handleSubmit(event) {
             
         } catch (err) {
             updateWhatHappened('Er ging iets mis met het ophalen van informatie over het draadje. Mogelijk is het een probleem met de server van het vivaforum. Ik probeer het nog een keer.', 1000);
-            // setTimeout(prepareDownload, 3000);
         }
     };
  

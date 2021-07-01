@@ -11,51 +11,61 @@
         <div class="top-bar">
             <div class="container">
                 <h1>Vivaforum draadjes downloader</h1>
+                <nav class="main_nav">
+                    <a href="index.html">
+                        Afwijkende link?
+                    </a>
+                </nav>
             </div>
         </div>
     </header>
         
-    <main class="container">
-        <form id="download-form">
-            <h2>Begin met downloaden</h2>
+    <main>
+        <div class="container">
+            <form id="download-form">
+                <h2>Begin met downloaden</h2>
 
-            <input type="hidden" name="whichForm" id="whichForm" value="formDefault" />
-            
-            <p>
+                
+                <input type="hidden" name="whichForm" id="whichForm" value="formDefault" />
+                
                 <label for="download_url">
-                    <span class="field-description">Plak hier het linkadres (de URL) van het draadje:</span><br />
-                    <input name="download_url" id="download_url" type="text" required>
-                    <span class="field-explanation">
-                        <span class="visually-hidden">Uitleg:</span>
-                        Ga naar de eerste pagina van het topic en kopieer het linkadres.<br />
-                        Bijvoorbeeld: https://forum.viva.nl/reizen/weekendje-zeeland/list_messages/479035 .<br />
-                        <a href="download-old.html">Zie je in de link de titel niet terug van het draadje?</a>
-                    </span>
+                    <span class="field-description">Plak hier de linkadres naar het draadje:</span><br />
+                    <input name="download_url" id="download_url" type="text" required> 
+
+                    <details>
+                        <summary>Toon uitgebreide uitleg</summary>
+                        <ol>
+                            <li>Ga naar het topic en kopieer het linkadres.<br />
+                                Zo ziet een link er bijvoorbeeld uit:<br />
+                                <code>https://forum.viva.nl/geld-recht/hilarische-gierige-acties/list_messages/161276</code> 
+                            </li>
+                            <li>Plak de link in het invoerveld.</li>
+                            <li>Klik op 'download'</li>
+                            <li>Ga op je harde schijf naar je gebruikersmap, daar zou nu een mapje 'viva-downloads' moeten verschijnen met het draadje.</li>
+                        </ol>
+                    </details>
                 </label>
-            </p>
 
-            <button type="submit">Download</button></p>
-        </form>
+                <p>
+                    <button type="submit">Download</button>
+                </p>
+            </form>
 
-        <div id="statusUpdate" aria-live="polite"></div>
+            <div id="statusUpdate" aria-live="polite"></div>
+        </div>
     </main>
 
-    <footer>
-        <nav class="main_nav">
-            <ul role="list">
-                <li>
-                    <a href="https://www.viva-downloader.nl" target="_blank" rel="noreferrer nofollow">
-                    <span class="nav_linklabel">Meer uitleg</span></a>
-                </li>
-                <li>
-                    <a href="https://github.com/anneke/vivaforum-draadjes-downloader" target="_blank" rel="noreferrer nofollow">
-                        <img src="iconfinder_287583_github_icon.svg" width="37" height="37" alt="" />
-                        <span class="nav_linklabel">Github</span></a>
-                </li>
-            </ul>
-        </nav>
+    <footer class="app-footer">
+        <div class="container">
+            <h2 class="visually-hidden">Footer</h2>
+            
+            <p><a href="https://www.viva-downloader.nl" target="_blank" rel="noreferrer nofollow">
+            <span class="nav_linklabel">Project website</span></a></p>
+        
+            <p>De code van dit programma en bijbehorende website zijn beiden in te zien via <a href="https://github.com/anneke/vivaforum-draadjes-downloader">Github</a></p>
+        </div>
     </footer>
 
-        <script src="./renderer.js"></script>
-  </body>
+    <script src="./renderer.js"></script>
+</body>
 </html>
