@@ -4,24 +4,27 @@ title: "Vivaforum draadjes downloader"
 ---
 ## Bewaar je herinneringen aan het Vivaforum
 
-Meelezen met het Vivaforum zorgde er voor dat je je soms minder alleen voelde. Je kwam er voor vermaak, of om geconfronteerd te worden met jezelf en je eigenaardigheden. Het was misschien je weinige troost als het 'echte leven' moeilijk was. 
+Meelezen met het Vivaforum zorgde er voor dat je je soms minder alleen voelde. Je kwam er voor vermaak, of om troost te vinden in herkenbare situaties. Of voor die virtuele knuffel als het leven even niet meezat.
 
-Om dit alles dat het Vivaforum was niet zomaar te laten verdwijnen, archiveert de [Koninklijke Bibliotheek](https://www.registerwebarchieven.nl/register/30611) al enige tijd jaarlijks het Vivaforum. Maar om het bewaren van draadjes (ook wel topics genoemd) zo laagdrempelig mogelijk te maken, is er nu de **Vivaforum draadjes downloader**!
+Om alles dat het Vivaforum voor veel mensen was niet zomaar te laten verdwijnen, archiveert de [Koninklijke Bibliotheek](https://www.registerwebarchieven.nl/register/30611) al enige tijd jaarlijks het Vivaforum. Maar om het bewaren van draadjes (ook wel topics genoemd) zo laagdrempelig mogelijk te maken, is er nu de **Vivaforum draadjes downloader!**
  
 
-<section class="download">
-<h2>Download het programma</h2>
-<p>Je kunt hier de software downloaden en installeren voor het systeem waar je computer mee werkt.</p>
-<p><strong id="systemUsed"></strong></p>
+<section class="download" markdown="1">
+
+## Download het programma
+
+Je kunt hier de software downloaden en installeren voor het systeem waar je computer mee werkt.
+
+<strong id="systemUsed"></strong>
 
 <div class="download_boxes">
-    <article id="windowsDownload" class="download_version">
-        <img src="assets/img/windows.png" alt="" />
+    <!-- <article id="windowsDownload" class="download_version">
+        <img src="assets/img/windows.svg" alt="" />
         <a href="/downloads/vf-draadjes-downloader-v1_0_0.exe" download>Download de Windows versie</a>
-    </article>
+    </article> -->
 
     <article id="macDownload" class="download_version">
-        <img src="assets/img/macos.png" alt="" />
+        <img src="assets/img/macos.svg" alt="" />
         <a href="/downloads/vf-draadjes-downloader-v1_0_0.dmg" download>Download de Mac versie</a>
     </article>
 </div>
@@ -29,15 +32,17 @@ Om dit alles dat het Vivaforum was niet zomaar te laten verdwijnen, archiveert d
 
 <section markdown="1">
 
-## Uitleg bij installatie
-
-Hoe werkt het programma? Nou, hopelijk zo eenvoudig mogelijk!
+## Hoe werkt het?
 
 1. je plakt de link van een topic in een invoerveld
 2. je drukt op enter of de knop 'Download'
-3. het programma maakt een mapje 'viva-downloads' in je gebruikersmap, met daarin een mapje met het topic en alle daarbij horende pagina's, afbeeldingen en layout.
+3. het programma maakt een mapje 'viva-downloads' in je gebruikersmap, met daarin een mapje met het topic en alle daarbij horende pagina's, afbeeldingen en layout. ✨
 
-<img src="/assets/img/example-downloadfolder.png" alt="Een voorbeeld van de map die wordt aangemaakt" width="500">
+Zo ziet het er bijvoorbeeld uit op een Apple computer:
+
+<div class="gallery">
+    <img src="/assets/img/example-downloadfolder.png" alt="De map vivaforum-downloads met daarin voor elk gedownload topic een map aangemaakt met als naam datum en titel, en daarin html, opmaak, en afbeeldingen. Elke pagina wordt opgeslagen als een apart html bestand, maar ze delen de gebruikte opmaakbestanden." width="600">
+</div>
 
 </section>
 
@@ -64,9 +69,11 @@ Ben je blij met dit programma en wil je me graag bedanken, dan kun je [met iDeal
 
 ## Hoe is dit gebouwd?
 
-Ik ([Anneke Sinnema](https://www.linkedin.com/in/annekesinnema/)) heb gebruik gemaakt van [Electron](https://www.electronjs.org/) om een cross-platform applicatie te bouwen met HTML, CSS en JavaScript. Want ik ben eigenlijk een webdeveloper! Geen designer, zoals je kunt zien aan deze pagina 😂. De code van deze website kun je vinden op Github. De code van de app kun je ook op Github vinden. Ben je zelf handig met code, dan kun je langs die weg een kopie maken van deze site/software of aanvullingen doen.
+Ik ([Anneke Sinnema](https://www.linkedin.com/in/annekesinnema/)) heb gebruik gemaakt van [Electron](https://www.electronjs.org/) om een cross-platform applicatie te bouwen met HTML, CSS en JavaScript. De [code van het programma en van deze website is vrij in te zien op Github](https://github.com/anneke/vivaforum-draadjes-downloader). Ben je zelf handig met code, dan kun je via dat platform een kopie maken van deze site/software of suggesties en zelf aanvullingen doen.
 
 Met dank aan Kilian Valkhof voor zijn hulp bij het inrichten van het buildproces. Hij is de maker van [Polypane](https://polypane.app/), een browser voor developers.
 
+<a href="https://github.com/anneke/vivaforum-draadjes-downloader" target="_blank" rel="noreferrer nofollow">
+<img src="/assets/img/github.png" width="37" height="37" alt="Bekijk op Github" /></a>
 
 </section>

@@ -1,40 +1,14 @@
 <div lang="nl">
 
-# VivaForum draadjes downloader
+# Vivaforum Draadjes Downloader
 
-Je kunt dit programma downloaden via de website [viva-downloader.nl](https://www.viva-downloader.nl). Op deze plek kun je kijken wat er in de code gebeurt, en een kopie maken om bijvoorbeeld de opmaak aan te passen. 
+Welkom welkom! In deze [Github](https://nl.wikipedia.org/wiki/GitHub) [repository](https://nl.wikipedia.org/wiki/Pakketbron) (digitale opslagplaats) vind je de broncode van de app Vivaforum Draadjes Downloader en de website die de app moet verduidelijken.
 
-Het Viva-forum gaat op 2 augustus offline dus wil je gebruik maken van deze download-tool, doe het dan voor die tijd! Daarna zal ik overwegen dit programma aan te passen zodat je als gebruiker draadjes van andere fora kunt downloaden.
+De app en de website zijn open source, en je kunt ze downloaden en gebruiken om een andere applicatie mee te bouwen. Bijvoorbeeld voor het downloaden van draadjes (topics) van een ander forum.
 
-Zie de website [viva-downloader.nl](https://www.viva-downloader.nl) voor uitleg over hoe je de app kunt gebruiken.
+Het nut van deze repository zal op 2 augustus waarschijnlijk vervlogen zijn omdat op die datum de stekker uit het Vivaforum gaat. Maak er dus voor die tijd gebruik van!
 
-![Een voorbeeld van wat je ziet als je een topic downloadt](example-downloadfolder.png)
-</div>
 
-## Maken van aanpassingen
+# Zie ook
 
-```bash
-# Kloon deze repository:
-git clone https://github.com/anneke/vivaforum-draadjes-downloader.git
-# Ga de map in
-cd vivaforum-draadjes-downloader
-# Installeer afhankelijkheden
-npm install
-# Start de app
-npm start
-```
-
-## Build maken
-
-Je kan een eigen build (productie-versie van het programma) maken met deze drie commandos:
-
-```bash
-# Windows
-npm run make-win
-# Mac iOS
-npm run make-mac
-# Linux
-npm run make-linux
-```
-
-Om de Windows variant op Mac (of Linux) te maken moet je eerst [mono installeren](https://www.mono-project.com/docs/getting-started/install/mac/).
+[De project website](https://www.viva-downloader.nl)

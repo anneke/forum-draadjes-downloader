@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <title>Vivaforum draadjes downloader - </title>
     <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="shortcut icon" href="/assets/img/favicon.ico">
   </head>
   <body>
 
@@ -13,51 +14,35 @@
             <div class="container">
                 <h1>Download draadjes van het Vivaforum</h1>
 
-                <nav class="main_nav">
-                    <ul role="list">
-                        <li>
-                            <a href="/download">
-                            <span class="nav_linklabel">Download</span></a>
-                        </li>
-                        <li>
-                            <a href="https://github.com/anneke/vivaforum-draadjes-downloader" target="_blank" rel="noreferrer nofollow">
-                                <img src="iconfinder_287583_github_icon.svg" width="37" height="37" alt="" />
-                                <span class="nav_linklabel">Github</span></a>
-                        </li>
-                    </ul>
-                </nav>
+                <a href="#download-het-programma">Download het programma</a>
             </div>
         </div>
-        <!-- <div class="container">
-            <nav class="sub_nav">
-                <a href="index.html">Download een draadje</a>
-
-                <a href="index.html">Download een oud draadje</a>
-            </nav>
-        </div> -->
     </header>
 
     <main>
         <div class="container">
             <h2 id="bewaar-je-herinneringen-aan-het-vivaforum">Bewaar je herinneringen aan het Vivaforum</h2>
 
-<p>Meelezen met het Vivaforum zorgde er voor dat je je soms minder alleen voelde. Je kwam er voor vermaak, of om geconfronteerd te worden met jezelf en je eigenaardigheden. Het was misschien je weinige troost als het ‘echte leven’ moeilijk was.</p>
+<p>Meelezen met het Vivaforum zorgde er voor dat je je soms minder alleen voelde. Je kwam er voor vermaak, of om troost te vinden in herkenbare situaties. Of voor die virtuele knuffel als het leven even niet meezat.</p>
 
-<p>Om dit alles dat het Vivaforum was niet zomaar te laten verdwijnen, archiveert de <a href="https://www.registerwebarchieven.nl/register/30611">Koninklijke Bibliotheek</a> al enige tijd jaarlijks het Vivaforum. Maar om het bewaren van draadjes (ook wel topics genoemd) zo laagdrempelig mogelijk te maken, is er nu de <strong>Vivaforum draadjes downloader</strong>!</p>
+<p>Om alles dat het Vivaforum voor veel mensen was niet zomaar te laten verdwijnen, archiveert de <a href="https://www.registerwebarchieven.nl/register/30611">Koninklijke Bibliotheek</a> al enige tijd jaarlijks het Vivaforum. Maar om het bewaren van draadjes (ook wel topics genoemd) zo laagdrempelig mogelijk te maken, is er nu de <strong>Vivaforum draadjes downloader!</strong></p>
 
 <section class="download">
-<h2>Download het programma</h2>
-<p>Je kunt hier de software downloaden en installeren voor het systeem waar je computer mee werkt.</p>
-<p><strong id="systemUsed"></strong></p>
 
-<div class="download_boxes">
-    <article id="windowsDownload" class="download_version">
-        <img src="assets/img/windows.png" alt="" />
-        <a href="/downloads/vf-draadjes-downloader-v1_0_0.exe" download="">Download de Windows versie</a>
-    </article>
+  <h2 id="download-het-programma">Download het programma</h2>
+
+  <p>Je kunt hier de software downloaden en installeren voor het systeem waar je computer mee werkt.</p>
+
+  <p><strong id="systemUsed"></strong></p>
+
+  <div class="download_boxes">
+    <!-- <article id="windowsDownload" class="download_version">
+        <img src="assets/img/windows.svg" alt="" />
+        <a href="/downloads/vf-draadjes-downloader-v1_0_0.exe" download>Download de Windows versie</a>
+    </article> -->
 
     <article id="macDownload" class="download_version">
-        <img src="assets/img/macos.png" alt="" />
+        <img src="assets/img/macos.svg" alt="" />
         <a href="/downloads/vf-draadjes-downloader-v1_0_0.dmg" download="">Download de Mac versie</a>
     </article>
 </div>
@@ -65,17 +50,19 @@
 
 <section>
 
-  <h2 id="uitleg-bij-installatie">Uitleg bij installatie</h2>
-
-  <p>Hoe werkt het programma? Nou, hopelijk zo eenvoudig mogelijk!</p>
+  <h2 id="hoe-werkt-het">Hoe werkt het?</h2>
 
   <ol>
     <li>je plakt de link van een topic in een invoerveld</li>
     <li>je drukt op enter of de knop ‘Download’</li>
-    <li>het programma maakt een mapje ‘viva-downloads’ in je gebruikersmap, met daarin een mapje met het topic en alle daarbij horende pagina’s, afbeeldingen en layout.</li>
+    <li>het programma maakt een mapje ‘viva-downloads’ in je gebruikersmap, met daarin een mapje met het topic en alle daarbij horende pagina’s, afbeeldingen en layout. ✨</li>
   </ol>
 
-  <p><img src="/assets/img/example-downloadfolder.png" alt="Een voorbeeld van de map die wordt aangemaakt" width="500" /></p>
+  <p>Zo ziet het er bijvoorbeeld uit op een Apple computer:</p>
+
+  <div class="gallery">
+    <img src="/assets/img/example-downloadfolder.png" alt="De map vivaforum-downloads met daarin voor elk gedownload topic een map aangemaakt met als naam datum en titel, en daarin html, opmaak, en afbeeldingen. Elke pagina wordt opgeslagen als een apart html bestand, maar ze delen de gebruikte opmaakbestanden." width="600" />
+</div>
 
 </section>
 
@@ -102,9 +89,12 @@
 
   <h2 id="hoe-is-dit-gebouwd">Hoe is dit gebouwd?</h2>
 
-  <p>Ik (<a href="https://www.linkedin.com/in/annekesinnema/">Anneke Sinnema</a>) heb gebruik gemaakt van <a href="https://www.electronjs.org/">Electron</a> om een cross-platform applicatie te bouwen met HTML, CSS en JavaScript. Want ik ben eigenlijk een webdeveloper! Geen designer, zoals je kunt zien aan deze pagina 😂. De code van deze website kun je vinden op Github. De code van de app kun je ook op Github vinden. Ben je zelf handig met code, dan kun je langs die weg een kopie maken van deze site/software of aanvullingen doen.</p>
+  <p>Ik (<a href="https://www.linkedin.com/in/annekesinnema/">Anneke Sinnema</a>) heb gebruik gemaakt van <a href="https://www.electronjs.org/">Electron</a> om een cross-platform applicatie te bouwen met HTML, CSS en JavaScript. De <a href="https://github.com/anneke/vivaforum-draadjes-downloader">code van het programma en van deze website is vrij in te zien op Github</a>. Ben je zelf handig met code, dan kun je via dat platform een kopie maken van deze site/software of suggesties en zelf aanvullingen doen.</p>
 
   <p>Met dank aan Kilian Valkhof voor zijn hulp bij het inrichten van het buildproces. Hij is de maker van <a href="https://polypane.app/">Polypane</a>, een browser voor developers.</p>
+
+  <p><a href="https://github.com/anneke/vivaforum-draadjes-downloader" target="_blank" rel="noreferrer nofollow">
+<img src="/assets/img/github.png" width="37" height="37" alt="Bekijk op Github" /></a></p>
 
 </section>
 
@@ -118,12 +108,10 @@
 
         if (navigator.appVersion.indexOf("Win") != -1) {
             tellUserSystemUsed = "Het lijkt er op dat je Windows gebruikt.";
-            windowsDownload.style.border = "thick solid #ffffff";
             windowsDownload.style.background = "#ffffff";
         }
         else if (navigator.appVersion.indexOf("Mac") != -1) {
             tellUserSystemUsed = "Het lijkt er op dat je een Mac gebruikt."; 
-            macDownload.style.border = "thick solid #ffffff";
             macDownload.style.background = "#ffffff";
         } else {
             tellUserSystemUsed = "Helaas lijkt het er op dat je geen Windows of MacOS gebruikt, of niet op een pc naar deze pagina kijkt."

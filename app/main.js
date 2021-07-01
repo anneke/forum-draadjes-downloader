@@ -5,8 +5,8 @@ const path = require("path");
 function createWindow () {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 1024,
-    height: 800,
+    width: 800,
+    height: 600,
     webPreferences: {
         nodeIntegration: true,
         enableRemoteModule: true,

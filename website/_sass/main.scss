@@ -46,14 +46,38 @@ a {
     box-sizing: border-box;
 }
 
+.download {
+    padding: 2rem 1rem;
+    margin: 2rem 0;
+    background-color: #f2f2f2;
+    text-align: center;
+    border-radius: 4px;
+
+    h2 {
+        margin-top: 0;
+    }
+
+    p {
+        margin: 0 auto 2rem;
+        max-width: 100%;
+    }
+}
+
+.download_boxes {
+    display: flex;
+    justify-content: space-around;
+    padding: 0 15%;
+}
+
 .download_version {
-    border: thick solid transparent;
     position: relative;
     padding: 1rem;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-radius: 4px;
+    border: 1px solid transparent;
 
     a {
         display: block;
@@ -79,30 +103,8 @@ a {
 
     &:hover,
     &:focus {
-        opacity: 1;
+        border: 1px solid $colorviva-5;
     }
-}
-
-.download {
-    padding: 1rem;
-    margin: 2rem 0;
-    background-color: #f2f2f2;
-    text-align: center;
-
-    h2 {
-        margin-top: 0;
-    }
-
-    p {
-        margin: 0 auto 2rem;
-        max-width: 100%;
-    }
-}
-
-.download_boxes {
-    display: flex;
-    justify-content: space-around;
-    padding: 0 15%;
 }
 
 .container {
@@ -147,11 +149,16 @@ li {
     width: 1px;
 }
 
-.app-header .container,
-nav ul,
-nav a {
+.app-header .container {
+    height: 50px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+
+    a,
+    a:visited {
+        color: white;
+    }
 }
 
 h1 {
@@ -173,22 +180,20 @@ nav li {
     margin: 0 1rem;
 }
 
-.sub_nav {
+.sub_nav ul {
     display: flex;
     width: 100%;
+    background: white;
+    align-items: center;
     justify-content: space-around;
 }
 
-.sub_nav a {
-    border-bottom: 1px solid black;
+.sub_nav li {
     display: block;
     text-align: center;
     width: 100%;
-    padding: 1rem 0;
-}
-
-.sub_nav a:first-child {
-    border-right: 1px solid black;
+    padding: 1.5rem;
+    flex: 1 0 20%;
 }
 
 .nav_linklabel {
