@@ -18,10 +18,10 @@ Je kunt hier de software downloaden en installeren voor het systeem waar je comp
 <strong id="systemUsed"></strong>
 
 <div class="download_boxes">
-    <!-- <article id="windowsDownload" class="download_version">
+    <article id="windowsDownload" class="download_version">
         <img src="assets/img/windows.svg" alt="" />
         <a href="/downloads/vf-draadjes-downloader-v1_0_0.exe" download>Download de Windows versie</a>
-    </article> -->
+    </article> 
 
     <article id="macDownload" class="download_version">
         <img src="assets/img/macos.svg" alt="" />
