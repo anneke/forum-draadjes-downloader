@@ -19,34 +19,31 @@
 html {
     margin: 0;
     padding: 0;
-    font-size: 16px;
+    font-size: 13px;
+
+    @media screen and (min-width: 600px) {
+        font-size: 16px;
+    }
 }
 
 body {
-  background: #f2f2f2;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1rem;
-  line-height: 1.7;
-  font-weight: normal;
-  color: #333;
-  margin: 0;
+    background: #f2f2f2;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    line-height: 1.7;
+    font-weight: normal;
+    color: #333;
+    margin: 0;
 }
 
 * {
     box-sizing: border-box;
 }
 
-.container {
-  background: white;
-  max-width: 1024px;
-  margin: 0 auto;
-  padding: 0 1.3rem;
+&:focus {
+    outline-color: #CF204F;
 }
 
-.top-bar {
-    background: #000;
-    width: 100%;
-}
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Montserrat', sans-serif;
@@ -105,6 +102,19 @@ input[type="checkbox"]:checked ~ fieldset {
     width: 1px;
 } 
 
+.container {
+  background: white;
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 0 1.3rem;
+}
+
+.top-bar,
+.top-bar .container {
+    background: #000;
+    width: 100%;
+    height: 50px;
+}
 
 .app-header .container,
 nav ul,
@@ -117,6 +127,10 @@ h1 {
     margin: 0;
     color: white;
     font-size: 1.6rem;
+}
+
+h2 {
+    font-size: 1.4rem;
 }
 
 nav li {
