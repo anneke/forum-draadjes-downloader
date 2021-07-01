@@ -25,8 +25,9 @@ function handleSubmit(event) {
     const formUsed = document.getElementById('whichForm').value;
 
     if (formUsed == "formDefault") {
-        download_url = document.getElementById('download_url').value;
-        // download_url_clean = download_url_value.split('?')[0];
+        download_url_dirty = document.getElementById('download_url').value;
+        let regex = /[0-9]{1,3}$/;
+        download_url = download_url_dirty.split(regex)[0].split('?')[0];
     } else {
         const download_topic = document.getElementById('download_topic').value;
         const download_topic_category = document.getElementById('download_topic_category').value;
@@ -37,8 +38,6 @@ function handleSubmit(event) {
 
         const attemptUrl = document.getElementById("attemptURL");
         attemptUrl.textContent = download_url;
-
-        console.log(download_url);
     }
 
     async function prepareDownload() {
@@ -46,7 +45,7 @@ function handleSubmit(event) {
             const response = await fetch(download_url);
 
             if (!response.ok) {
-                updateWhatHappened('Er ging iets mis met het ophalen van informatie over het draadje. Mogelijk is het een probleem met de server van het vivaforum.');
+                updateWhatHappened('Er ging iets mis met het ophalen van informatie over het draadje. Ik kan geen verbinding maken met de server van het Vivaforum. Is het al 2 augustus geweest? 😭');
                 console.error(response.status);
             }
             
@@ -131,7 +130,7 @@ function handleSubmit(event) {
                     }
                     
                     if (value.numberOfPages = 1) {
-                        updateWhatHappened(`Dit draadje telt ${value.numberOfPages} pagina.`, 12000);
+                        updateWhatHappened(`Dit draadje telt ${value.numberOfPages} pagina.`, 8000);
                     }
                 }
                     
