@@ -15,7 +15,6 @@ const { JSDOM } = jsdom;
 const slugify = require('slugify');
   
 const homedir = os.homedir() + '/vivaforum-downloads/'; 
-let timesRun = 0;
     
 function handleSubmit(event) {
     event.preventDefault();
@@ -40,7 +39,7 @@ function handleSubmit(event) {
 
         if (download_url.match(oldURL)) {
             updateWhatHappened('Je hebt een link ingevoerd die niet goed werkt. <a href="download-old.html">Je kunt het met dit formulier opnieuw proberen.</a>', 0);
-            return;
+            download_url = null;
         }
     } else {
         const download_topic = document.getElementById('download_topic').value;
@@ -56,6 +55,7 @@ function handleSubmit(event) {
 
     async function prepareDownload() {
         try {
+            console.log('preparing download... ' + download_url);
 
             const response = await fetch(download_url);
             const text = await response.text();
@@ -66,6 +66,7 @@ function handleSubmit(event) {
             }
         
             function numberOfPagesToDownload() {
+                console.log('getting number of messages... ' + numberOfMessages);
                 if (numberOfMessages > 25) {
                     getMessageNumber = dom.window.document.querySelector(".pagination__nav li:nth-last-child(2) a").textContent;
                     return getMessageNumber;
@@ -92,34 +93,36 @@ function handleSubmit(event) {
             return threadInfo;
             
         } catch (err) {
-            updateWhatHappened('Er ging iets mis met het ophalen van informatie over het draadje. Mogelijk is het een probleem met de server van het vivaforum. Ik probeer het nog een keer.', 1000);
+            updateWhatHappened('Er ging iets mis met het ophalen van informatie over het draadje. Klopt de link wel?', 1000);
+
+            console.log('try catch error');
         }
     };
  
     prepareDownload().then((value) => {
-        if (value != undefined) {
+        function downloadAllThePages() {
+            let numberOfPagesDownloaded = [];
+            if (fs.existsSync(homedir + '/' + value.sanitizedTitle + '/')) {
+                console.log('folder already exists...');
+                files = fs.readdirSync(homedir + '/' + value.sanitizedTitle + '/');
+                files.forEach(file => {
+                    if (path.extname(file) == ".html")
+                        numberOfPagesDownloaded.push(file);
+                });
 
-            function downloadAllThePages() {
-                let numberOfPagesDownloaded = [];
-                if (fs.existsSync(homedir + '/' + value.sanitizedTitle + '/')) {
-                    files = fs.readdirSync(homedir + '/' + value.sanitizedTitle + '/');
-                    files.forEach(file => {
-                        if (path.extname(file) == ".html")
-                            numberOfPagesDownloaded.push(file);
-                    });
-
-                    updateWhatHappened(`Ik zie dat ik al eerder naar deze link heb gekeken. Ik ga kijken of er nog iets mist!`, 1000);
-
-                    if (numberOfPagesDownloaded.length < value.numberOfPages) {
-                        if (timesRun = 0) {
-                            updateWhatHappened(`Ik heb eerder al ${numberOfPagesDownloaded.length} pagina's gedownload. Ik ga nu de andere pagina's downloaden.`, 1000);
-                            timesRun += 1;
-                        }
-                    } else {
-                        updateWhatHappened(`Ik denk dat we er zijn! Check je gebruikersmap voor het mapje vivaforum-downloads.`, 3000, "succes.svg");
-                        return;
+                if (numberOfPagesDownloaded.length < value.numberOfPages) {
+                    console.log('what was downloaded is less than the amount of thread pages...');
+                    if (timesRun = 0) {
+                        updateWhatHappened(`Ik heb eerder al ${numberOfPagesDownloaded.length} pagina's gedownload. Ik ga nu de andere pagina's downloaden.`, 1000);
                     }
                 } else {
+                    updateWhatHappened(`Ik denk dat we er zijn! Check je gebruikersmap voor het mapje vivaforum-downloads.`, 3000, "succes.svg");
+                    return;
+                }
+            } else {
+                console.log('folder didn\'t exist yet...');
+
+                if (timesRun = 1) {
                     updateWhatHappened(`Verbinding gemaakt met de server!`, 1000);
 
                     updateWhatHappened(`Klaar om het draadje "${value.title}" te downloaden...`, 3000);
@@ -140,47 +143,54 @@ function handleSubmit(event) {
                     if (value.numberOfPages >= 2 && value.numberOfPages <= 39) {
                         updateWhatHappened(`Dit draadje telt ${value.numberOfPages} pagina's.`, 12000);
                     }
-                    
-                    if (value.numberOfPages = 1) {
-                        updateWhatHappened(`Dit draadje telt ${value.numberOfPages} pagina.`, 8000);
-                    }
                 }
-                    
-                const allThreadPages = value.numberOfPages + 1;
+            }
+                
+            const allThreadPages = value.numberOfPages + 1;
 
-                // loop over all the pages, and download the associated link
-                // in a seperate folder
-                for (let i = 1; i < allThreadPages; i++) {
-                    // if the number of pages downloaded matches the 
-                    // number of pages in the forum thread...
-                    if (numberOfPagesDownloaded.length == value.numberOfPages) {
-                        updateWhatHappened(`Ik denk dat we er zijn! Check je gebruikersmap voor het mapje vivaforum-downloads.`, 33000, "succes.svg");
-                    } else {
-                        let download_folder = homedir + '/' + value.sanitizedTitle + '/';
+            // loop over all the pages, and download the associated link
+            // in a seperate folder
+            for (let i = 1; i < allThreadPages; i++) {
+                // if the number of pages downloaded matches the 
+                // number of pages in the forum thread...
+                if (numberOfPagesDownloaded.length == value.numberOfPages) {
+                    updateWhatHappened(`Ik denk dat we er zijn! Check je gebruikersmap voor het mapje vivaforum-downloads.`, 33000, "succes.svg");
+                } else {
+                    let download_folder = homedir + '/' + value.sanitizedTitle + '/';
+                    console.log(`checking if we already downloaded page ${i}...`);
 
-                        // if we're not at the last iteration, download the page 
-                        // and it's assets if the folder doesn't yet exist
-                        if (!fs.existsSync(download_folder + `pagina-${i}.html`)) {
-                            const options = {
-                                urls: download_url + '/' + i,
-                                directory: download_folder,
-                                defaultFilename: `pagina-${i}.html`,
-                                plugins: [new SaveToExistingDirectoryPlugin()]
-                            };
+                    // if we're not at the last iteration, download the page 
+                    // and it's assets if the folder doesn't yet exist
+                    if (!fs.existsSync(download_folder + `pagina-${i}.html`)) {
+                        console.log(`page ${i} didn't exist yet...`);
 
-                            scrape(options).then((result) => {
-                                if (timesRun = 0) {
-                                    updateWhatHappened(`Pagina-${i}.html gedownload`, 3000);
-                                }
-                            });
-                        }
+                        const options = {
+                            urls: download_url + '/' + i,
+                            directory: download_folder,
+                            defaultFilename: `pagina-${i}.html`,
+                            plugins: [new SaveToExistingDirectoryPlugin()]
+                        };
+
+                        scrape(options).then((result) => {
+                            console.log(`downloaded page ${i}...`);
+                            if (timesRun = 0) {
+                                updateWhatHappened(`Pagina-${i}.html gedownload`, 3000);
+                            }
+                        });
                     }
                 }
             }
-            downloadAllThePages();
         }
+
+        let timesRun = 0;
+        downloadAllThePages();
+        
+        setTimeout(downloadAllThePages, 12000);
+        
+        setTimeout(downloadAllThePages, 20000);
     });
 }
+
 
 const form = document.querySelector('form#download-form');
 form.addEventListener('submit', handleSubmit);
@@ -194,6 +204,7 @@ function updateWhatHappened(updateUser, timeDelay, icon = "") {
                 `<img src="${icon}" alt="" width="20" height="20" style="margin-right: .5rem; float: left;">` + updateUser;
         } else {
             clearOutWhatHappened();
+            console.log('-----------');
             paragraph.innerHTML = updateUser;
         }
             
@@ -205,7 +216,6 @@ function updateWhatHappened(updateUser, timeDelay, icon = "") {
 
 function clearOutWhatHappened() {
     document.getElementById("statusUpdate").innerHTML = "";
-    timesRun = 0;
 }
 
 
