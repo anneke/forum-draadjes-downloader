@@ -38,17 +38,12 @@ body {
     color: #333;
     margin: 0;
     min-width: 420px;
-}
-
-@media screen and (min-width: 600px) {
-    body {
-        display: flex;
-        flex-direction: column;
-        justify-content: stretch;
-        align-content: stretch;
-        align-items: stretch;
-        height: 100%;
-    }
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-content: stretch;
+    align-items: stretch;
 }
 
 * {
@@ -138,6 +133,7 @@ ol {
 
 main {
     flex: 1 1 auto;
+    background: white;
 }
 
 main .container {
@@ -151,14 +147,27 @@ main .container {
 .app-footer {
     background: #000;
     width: 100%;
-    min-height: 50px;
+}
+
+.top-bar {
+    min-height: 70px;
+}
+
+.top-bar .container {
+    height: 70px;
 }
 
 .app-footer { 
     height: auto;
-    flex-grow: 1;
     color: white;
-    flex: 0 0 50px;
+    flex: 1 0 50px;
+}
+
+@media screen and (min-width: 300px) {
+    .app-footer p {
+        flex: 1 1 50%;
+        align-self: flex-start;
+    }
 }
 
 .app-footer a,

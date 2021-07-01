@@ -117,7 +117,7 @@ function handleSubmit(event) {
                         }
                     } else {
                         updateWhatHappened(`Ik denk dat we er zijn! Check je gebruikersmap voor het mapje vivaforum-downloads.`, 3000, "succes.svg");
-                        return
+                        return;
                     }
                 } else {
                     updateWhatHappened(`Verbinding gemaakt met de server!`, 1000);
