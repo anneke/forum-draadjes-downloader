@@ -1,6 +1,6 @@
 <div lang="nl">
 
-# VivaForum draadjes downloader
+# Vivaforum draadjes downloader
 
 Je kunt dit programma downloaden via de website [viva-downloader.nl](https://www.viva-downloader.nl). Op deze plek kun je kijken wat er in de code gebeurt, en een kopie maken om bijvoorbeeld de opmaak aan te passen. 
 

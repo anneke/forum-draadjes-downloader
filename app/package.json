@@ -1,7 +1,7 @@
 {
   "name": "vivaforum-draadjes-downloader",
   "version": "1.0.0",
-  "description": "Een electron applicatie om gemakkelijk(er) VivaForum draadjes te downloaden",
+  "description": "Een electron applicatie om gemakkelijk(er) Vivaforum draadjes te downloaden",
   "main": "main.js",
   "scripts": {
     "start": "electron-forge start",
