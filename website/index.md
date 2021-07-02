@@ -31,6 +31,16 @@ Het bestand is 80,5 MB.
 </div>
 </section>
 
+<section id="ifWindows" hidden>
+    <h2>Let op, installeer je dit op Windows?</h2>
+</section>
+
+<section id="ifMac" hidden>
+    <h2>Let op, installeer je dit op een Mac?</h2>
+    <p>macOS staat standaard zo ingesteld, dat je alleen programma's uit de Mac App Store kunt installeren. Heb je software gedownload van de website van de ontwikkelaar, dan zul je hiervoor een extra stap moeten nemen.</p>
+    <p><a href="https://www.iculture.nl/tips/mac-apps-installeren-buiten-mac-app-store-om/">Dit artikel van iCulture (opent in een nieuw browserraam) legt uit hoe je de app kunt installeren.</a></p>
+</section>
+
 <section markdown="1">
 
 ## Hoe werkt het?

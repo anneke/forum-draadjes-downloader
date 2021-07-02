@@ -49,6 +49,16 @@ Het bestand is 80,5 MB.</p>
 </div>
 </section>
 
+<section id="ifWindows" hidden="">
+    <h2>Let op, installeer je dit op Windows?</h2>
+</section>
+
+<section id="ifMac" hidden="">
+    <h2>Let op, installeer je dit op een Mac?</h2>
+    <p>macOS staat standaard zo ingesteld, dat je alleen programma's uit de Mac App Store kunt installeren. Heb je software gedownload van de website van de ontwikkelaar, dan zul je hiervoor een extra stap moeten nemen.</p>
+    <p><a href="https://www.iculture.nl/tips/mac-apps-installeren-buiten-mac-app-store-om/">Dit artikel van iCulture (opent in een nieuw browserraam) legt uit hoe je de app kunt installeren.</a></p>
+</section>
+
 <section>
 
   <h2 id="hoe-werkt-het">Hoe werkt het?</h2>
@@ -106,14 +116,18 @@ Het bestand is 80,5 MB.</p>
         windowsDownload = document.getElementById("windowsDownload");
         macDownload = document.getElementById("macDownload");
         fillSpan = document.getElementById("systemUsed");
+        ifWindows = document.getElementById("ifWindows");
+        ifMac = document.getElementById("ifMac");
 
         if (navigator.appVersion.indexOf("Win") != -1) {
             tellUserSystemUsed = "Het lijkt er op dat je Windows gebruikt.";
             windowsDownload.style.background = "#ffffff";
+            ifWindows.removeAttribute("hidden");
         }
         else if (navigator.appVersion.indexOf("Mac") != -1) {
             tellUserSystemUsed = "Het lijkt er op dat je een Mac gebruikt."; 
             macDownload.style.background = "#ffffff";
+            ifMac.removeAttribute("hidden");
         } else {
             tellUserSystemUsed = "Helaas lijkt het er op dat je geen Windows of MacOS gebruikt, of niet op een pc naar deze pagina kijkt."
         }

@@ -29,14 +29,18 @@
         windowsDownload = document.getElementById("windowsDownload");
         macDownload = document.getElementById("macDownload");
         fillSpan = document.getElementById("systemUsed");
+        ifWindows = document.getElementById("ifWindows");
+        ifMac = document.getElementById("ifMac");
 
         if (navigator.appVersion.indexOf("Win") != -1) {
             tellUserSystemUsed = "Het lijkt er op dat je Windows gebruikt.";
             windowsDownload.style.background = "#ffffff";
+            ifWindows.removeAttribute("hidden");
         }
         else if (navigator.appVersion.indexOf("Mac") != -1) {
             tellUserSystemUsed = "Het lijkt er op dat je een Mac gebruikt."; 
             macDownload.style.background = "#ffffff";
+            ifMac.removeAttribute("hidden");
         } else {
             tellUserSystemUsed = "Helaas lijkt het er op dat je geen Windows of MacOS gebruikt, of niet op een pc naar deze pagina kijkt."
         }
