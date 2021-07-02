@@ -14,7 +14,7 @@ Om alles dat het Vivaforum voor veel mensen was niet zomaar te laten verdwijnen,
 ## Download het programma
 
 Je kunt hier de software downloaden en installeren voor het systeem waar je computer mee werkt.<br />
-Het bestand is 80,5 MB.
+Het programma is ongeveer 80,5 MB.
 
 <div id="desktopWarning">
     <strong>Let op:</strong> Dit is software voor een desktop computer! 
@@ -25,7 +25,7 @@ Het bestand is 80,5 MB.
 <div class="download_boxes">
     <article id="windowsDownload" class="download_version">
         <img src="assets/img/windows.svg" alt="" />
-        <a href="/downloads/vf-draadjes-downloader-v2_0_0.exe" download>Download de Windows versie</a>
+        <a href="/downloads/vivaforum-draadjes-downloader-2.0.0.exe" download>Download de Windows versie</a>
     </article> 
 
     <article id="macDownload" class="download_version">
@@ -53,10 +53,12 @@ Het bestand is 80,5 MB.
 2. je drukt op enter of de knop 'Download'
 3. het programma maakt een mapje 'viva-downloads' in je gebruikersmap, met daarin een mapje met het topic en alle daarbij horende pagina's, afbeeldingen en layout. ✨
 
-Zo ziet het er bijvoorbeeld uit op een Apple computer:
+Zo ziet het er bijvoorbeeld uit (je kunt naar rechts scrollen voor meer afbeeldingen, of klikken op de afbeelding voor een grotere versie).
 
 <div class="gallery">
-    <img src="/assets/img/example-downloadfolder.png" alt="De map vivaforum-downloads met daarin voor elk gedownload topic een map aangemaakt met als naam datum en titel, en daarin html, opmaak, en afbeeldingen. Elke pagina wordt opgeslagen als een apart html bestand, maar ze delen de gebruikte opmaakbestanden." width="600">
+    <a href="/assets/img/example-downloadfolder.png" target="_blank"><img src="/assets/img/example-downloadfolder.png" alt="Op een Mac computer: de map vivaforum-downloads met daarin voor elk gedownload topic een map aangemaakt met als naam datum en titel, en daarin html, opmaak, en afbeeldingen. Elke pagina wordt opgeslagen als een apart html bestand, maar ze delen de gebruikte opmaakbestanden." width="600"></a>
+    <a href="/assets/img/windows-downloading.PNG" target="_blank"><img src="/assets/img/windows-downloading.PNG" alt="De map vivaforum-downloads op een Windows computer. Ernaast het programma om mee te downloaden." width="600"></a>
+    <a href="/assets/img/example-downloadfolder-windows.PNG" target="_blank"><img src="/assets/img/example-downloadfolder-windows.PNG" alt="Het draadje Gierige Acties deel vier is gedownload in een mapje op Windows." width="600"></a>
 </div>
 
 </section>
