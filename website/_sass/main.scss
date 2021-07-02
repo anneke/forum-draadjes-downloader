@@ -63,10 +63,24 @@ a {
     }
 }
 
-.download_boxes {
-    display: flex;
-    justify-content: space-around;
-    padding: 0 15%;
+#systemUsed {
+    display: none;
+}
+
+@media screen and (min-width: 600px) {
+    .download_boxes {
+        display: flex;
+        justify-content: space-around;
+        padding: 0 15%;
+    }
+
+    #systemUsed {
+        display: inline;
+    }
+
+    #desktopWarning {
+        display: none;
+    }
 }
 
 .download_version {
@@ -93,12 +107,20 @@ a {
     }
 
     img {
-        max-width: 100px;
-        max-height: 100px;
+        max-width: 60px;
+        max-height: 60px;
         width: auto;
         display: block;
         height: 100%;
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    @media screen and (min-width: 600px) {
+        img {
+            max-width: 100px;
+            max-height: 100px;
+            margin-bottom: 2rem;
+        }
     }
 
     &:hover,
@@ -159,6 +181,11 @@ li {
     a:visited {
         color: white;
     }
+}
+
+.gallery img {
+    width: 100%;
+    height: auto;
 }
 
 h1 {

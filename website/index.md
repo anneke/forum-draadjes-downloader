@@ -16,6 +16,10 @@ Om alles dat het Vivaforum voor veel mensen was niet zomaar te laten verdwijnen,
 Je kunt hier de software downloaden en installeren voor het systeem waar je computer mee werkt.<br />
 Het bestand is 80,5 MB.
 
+<div id="desktopWarning">
+    <strong>Let op:</strong> Dit is software voor een desktop computer! 
+</div>
+
 <strong id="systemUsed"></strong>
 
 <div class="download_boxes">
@@ -32,13 +36,13 @@ Het bestand is 80,5 MB.
 </section>
 
 <section id="ifWindows" hidden>
-    <h2>Let op, installeer je dit op Windows?</h2>
+    <h2>Installeer je dit op Windows?</h2>
 </section>
 
 <section id="ifMac" hidden>
-    <h2>Let op, installeer je dit op een Mac?</h2>
+    <h2>Installeer je dit op een Mac?</h2>
     <p>macOS staat standaard zo ingesteld, dat je alleen programma's uit de Mac App Store kunt installeren. Heb je software gedownload van de website van de ontwikkelaar, dan zul je hiervoor een extra stap moeten nemen.</p>
-    <p><a href="https://www.iculture.nl/tips/mac-apps-installeren-buiten-mac-app-store-om/">Dit artikel van iCulture (opent in een nieuw browserraam) legt uit hoe je de app kunt installeren.</a></p>
+    <p><a href="https://www.iculture.nl/tips/mac-apps-installeren-buiten-mac-app-store-om/">Dit artikel van iCulture (opent in een nieuw scherm) legt uit hoe je de app kunt installeren.</a></p>
 </section>
 
 <section markdown="1">
