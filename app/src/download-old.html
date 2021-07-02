@@ -10,7 +10,11 @@
     <header class="app-header">
         <div class="top-bar">
             <div class="container">
-                <h1>Vivaforum draadjes downloader</h1>
+                <h1>
+                    <a href="index.html">
+                        Vivaforum draadjes downloader
+                    </a>
+                </h1>
                 <nav class="main_nav">
                     <a href="index.html">
                         Normale link?
@@ -22,18 +26,28 @@
         
     <main>
         <div class="container">
+            <h2>Ouder draadje downloaden</h2>
+
+            <input type="hidden" name="whichForm" id="whichForm" value="formOldTopics" />
+
+            <p>Wil je graag een draadje downloaden dat uit de Viva-zoekresultaten omhoog komt, maar wat (als je er op klikt) je niet het draadje laat zien? Je kunt langs dit formulier misschien toch het draadje te pakken krijgen.<br /> 
+                <strong>Let op:</strong> dit werkt mogelijk niet altijd!</p>
+
+            <p>Dit werkt voor links die er zo uit zien: <code>http://forum.viva.nl/forum/list_messages/363549</code></p>
+
+            <details>
+                <summary>Toon uitgebreide uitleg</summary>
+                <ol>
+                    <li>Gebruik de zoekfunctie op https://forum.viva.nl om het topic te vinden.</li>
+                    <li>Wanneer je in de zoekresultaten het draadje ziet dat je wil downloaden, gebruik de rechts-klik van je muis en kies "linkadres kopi&euml;ren" (of wat daar op lijkt). Plak de link in een tekstbestandje. Ik verwacht dat de link die je plakt er zo uit ziet:<br /><code>https://forum.viva.nl/forum/list_messages/363549</code> </li>
+                    <li>Kopieer ook de naam van het draadje, bijvoorbeeld "Gierige acties deel VI", en noteer de pijler.</li> 
+                    <li>Haal nu de cijfercode dat aan het eind van het linkadres staat. In dit voorbeeld is de cijfercode <code></code>363549</code>.</li> 
+                </ol>
+            </details> 
+
+            <hr />
+            
             <form id="download-form">
-
-                <h2>Ouder draadje downloaden</h2>
-
-                <input type="hidden" name="whichForm" id="whichForm" value="formOldTopics" />
-
-                <p>Wil je graag een draadje downloaden dat uit de Viva-zoekresultaten omhoog komt, maar wat (als je er op klikt) je niet het draadje laat zien? Je kunt langs dit formulier misschien toch het draadje te pakken krijgen. <strong>Let op:</strong> dit werkt misschien niet altijd!</p>
-
-                <p>Dit werkt voor links die er zo uit zien: <code>http://forum.viva.nl/forum/list_messages/363549</code></p>
-
-                <hr />
-
                 <div class="grid">
                     <p>
                         <label for="download_topic">
@@ -86,38 +100,22 @@
                     </p>
                     <p>
                         <label for="download_topic_id">
-                            <span class="field-description">3. Plak hier de cijfercode aan het eind van de link:</span>
+                            <span class="field-description">3. Plak hier de cijfercode:</span>
                         <input name="download_topic_id" id="download_topic_id" type="text" required
                         placeholder="363549"></label>
-                        <span class="field-explanation">Een zes-cijferig getal, bijvoorbeeld: <code>363549</code></span>
+                        <span class="field-explanation">Dit is het zes-cijferig getal aan het eind van de oude topic link, bijvoorbeeld: <code>363549</code></span>
                     </p>
 
-                    <div>
-                    <button type="submit">Download</button>
-                    </div>
+                    <p>
+                        <span class="field-description">Alles ingevuld?</span>
+                        <button type="submit">Download!</button>
+                    </p>
                 </div>
-
-                <p>
-                    <details class="field-explanation">
-                        <summary>Toon uitgebreide uitleg</summary>
-                        <ol>
-                            <li>Gebruik de zoekfunctie op https://forum.viva.nl om het topic te vinden.</li>
-                            <li>Wanneer je in de zoekresultaten het draadje ziet dat je wil downloaden, gebruik de rechts-klik van je muis en kies "linkadres kopi&euml;ren" (of wat daar op lijkt). Plak de link in een tekstbestandje. Ik verwacht dat de link die je plakt er zo uit ziet:<br /><code>https://forum.viva.nl/forum/list_messages/363549</code> </li>
-                            <li>Kopieer ook de naam van het draadje, bijvoorbeeld "Gierige acties deel VI", en noteer de pijler.</li> 
-                            <li>Haal nu de cijfercode dat aan het eind van het linkadres staat. In dit voorbeeld is de cijfercode <code></code>363549</code>.</li> 
-                        </ol>
-                    </details> 
-                </p>
 
             </form>
 
-        <div id="attemptURL" aria-live="polite">
-
-        </div>
-
-        <div id="statusUpdate" aria-live="polite">
-
-        </div>
+        <div id="attemptURL" aria-live="polite"></div>
+        <div id="statusUpdate" aria-live="polite"></div>
     </div>
     </main>
 

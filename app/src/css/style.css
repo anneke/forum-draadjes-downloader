@@ -16,6 +16,12 @@
          url("../fonts/montserrat-v15-latin_cyrillic-ext_cyrillic-regular.woff") format("woff"); 
 }
 
+@media screen and (width: 450) {
+    html {
+        overflow-x: hidden;
+    }
+}
+
 html {
     margin: 0;
     padding: 0;
@@ -61,6 +67,10 @@ h1, h2, h3, h4, h5, h6 {
 
 form h2 {
     margin-top: 0;
+}
+
+label {
+    display: block;
 }
 
 input, select, button {
@@ -196,6 +206,10 @@ h1 {
     font-size: 1.2rem;
 }
 
+h1 a {
+    color: white;
+}
+
 @media screen and (min-width: 600px) {
     h1 {
         font-size: 1.6rem;
@@ -261,6 +275,6 @@ button:focus {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-gap: 0 2rem;
-        align-items: center;
+        align-items: flex-start;
     }
 }
