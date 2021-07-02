@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Vivaforum draadjes downloader"
+title: Vivaforum draadjes downloader
 ---
 ## Bewaar je herinneringen aan het Vivaforum
 

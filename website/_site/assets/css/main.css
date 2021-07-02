@@ -42,10 +42,11 @@ p, li { max-width: 72ch; }
 
 .gallery img { width: 100%; height: auto; }
 
-h1 { margin: 0; color: white; font-size: 1.2rem; }
+h1 { margin: 0; color: white; font-size: 1rem; }
 
 h1 a { color: white; }
 
+@media screen and (min-width: 500px) { h1 { font-size: 1.2rem; } }
 @media screen and (min-width: 600px) { h1 { font-size: 1.6rem; } }
 h2 { font-size: 1.4rem; }
 
