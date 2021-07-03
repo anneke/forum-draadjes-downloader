@@ -37,6 +37,9 @@ Het programma is ongeveer 80,5 MB.
 
 <section id="ifWindows" hidden>
     <h2>Installeer je dit op Windows?</h2>
+    <p>Het kan zijn dat Windows Defender een popup krijgt wanneer je het programma wil gebruiken, met daarin een tekst die vertelt dat een onbekend programma is geblokkeerd om veiligheidsredenen. Als je op "meer info" klikt, dan kun je toch het programma gebruiken.</p>
+    <p>Mocht je hier je bedenkingen bij hebben, maar wil je toch 1 of 2 draadjes downloaden? Dan mag je mij ook een mailtje sturen, dan download ik het voor je en mail ik je (in een zip-bestand) de bestanden terug 😘 <br />
+    Mail mij op <a href="mailto:mail@annekesinnema.nl?subject=Vivaforum draadjes downloader">mail@annekesinnema.nl</a>.</p>
 </section>
 
 <section id="ifMac" hidden>
