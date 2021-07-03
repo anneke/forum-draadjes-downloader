@@ -98,48 +98,56 @@ function handleSubmit(event) {
     };
  
     prepareDownload().then((value) => {            
-        function numberOfPagesDownloaded() {
+        function numberOfPagesDownloaded(sanitizedTitle) {
             numberOfPagesDownloadedArray = [];
-            if (fs.existsSync(homedir + '/' + value.sanitizedTitle + '/')) {
-                files = fs.readdirSync(homedir + '/' + value.sanitizedTitle + '/');
+            if (fs.existsSync(homedir + '/' + sanitizedTitle + '/')) {
+                files = fs.readdirSync(homedir + '/' + sanitizedTitle + '/');
                 files.forEach(file => {
                     if (path.extname(file) == ".html") {
                         numberOfPagesDownloadedArray.push(file);
                     }
                 });
-            }
+            } 
             return numberOfPagesDownloadedArray.length;
         }
 
-        if (numberOfPagesDownloaded() == 0) {
-            updateWhatHappened(`Verbinding gemaakt met de server!`, 100);
-            updateWhatHappened(`Klaar om het draadje "${value.title}" te downloaden...`, 3000);
+        console.log(numberOfPagesDownloaded(value.sanitizedTitle));
+
+        if (numberOfPagesDownloaded(value.sanitizedTitle) == 0) {
+            updateWhatHappened(`Verbinding gemaakt met de server! Klaar om het draadje "${value.title}" te downloaden...`, 300);
 
             if (value.numberOfPages >= 40) {
-                updateWhatHappened(`Dit draadje telt maar liefst ${value.numberOfPages} pagina's. Ik heb waarschijnlijk wat meer tijd nodig om alles te downloaden. Check ook even het mapje vivaforum-downloads in je gebruikersmap, dan zie je hoe alles binnendruppelt. Duurt het je te lang? Je kunt gerust nog eens op 'download' klikken.`, 9000);
+                updateWhatHappened(`Dit draadje telt maar liefst ${value.numberOfPages} pagina's. Ik heb waarschijnlijk wat meer tijd nodig om alles te downloaden. Check ook even het mapje vivaforum-downloads in je gebruikersmap, dan zie je hoe alles binnendruppelt.`, 5000);
             } else if (value.numberOfPages == 1) {
-                updateWhatHappened(`Dit draadje telt ${value.numberOfPages} pagina.`, 9000);
+                updateWhatHappened(`Dit draadje telt ${value.numberOfPages} pagina.`, 5000);
             } else {
-                updateWhatHappened(`Dit draadje telt ${value.numberOfPages} pagina's.`, 9000);
+                updateWhatHappened(`Dit draadje telt ${value.numberOfPages} pagina's. Ik ga aan de slag!`, 5000);
             }
-        } else if (numberOfPagesDownloaded() == value.numberOfPages) {
-            updateWhatHappened(`Even kijken!`, 100);
+        } else if (numberOfPagesDownloaded(value.sanitizedTitle) == value.numberOfPages) {
+            if (timesRun == 0) {
+                updateWhatHappened(`Even kijken!`, 100);
+            }
 
             updateWhatHappened(`Ik denk dat we er zijn! Check je gebruikersmap voor het mapje vivaforum-downloads.`, 1000, "succes.svg");
         } else {
-            updateWhatHappened(`Ik heb nu ${numberOfPagesDownloaded.length} gedownload van de ${value.numberOfPages}.`, 3000);
+            if (timesRun == 0) {
+                updateWhatHappened(`Ah, ik heb dit draadje eerder gezien!`, 100);
+                updateWhatHappened(`Ik heb eerder ${numberOfPagesDownloaded(value.sanitizedTitle)} gedownload van de ${value.numberOfPages} pagina's.<br /> Ik download nu de rest...`, 3000);
+            } else {
+
+            }
         }
 
-        function downloadAllThePages() {
-            console.log('running downloadAllThePages()');
+        function downloadAllThePages() {            
             // loop over all the pages, and download the associated link
             // in a seperate folder
-            for (let i = 1; i < (value.numberOfPages + 1); i++) {
+
+            allPages = value.numberOfPages + 1;
+
+            for (let i = 1; i < allPages; i++) {
             // // if the number of pages downloaded does not matches the 
             // // number of pages in the forum thread...
                 let download_folder = homedir + '/' + value.sanitizedTitle + '/';
-
-                numberOfPagesDownloadedArray.push(`pagina-${i}.html`);
 
                 // if we're not at the last iteration, download the page 
                 // and it's assets if the folder doesn't yet exist
@@ -165,13 +173,14 @@ function handleSubmit(event) {
         // for (let j = 0; j < 3; j++) {
         function checkAndRepeat() {
             function didWeDownloadEverything() {
-                if (numberOfPagesDownloaded() == 0) {
+                numberOfPagesDownloaded(value.sanitizedTitle);
+
+                if (numberOfPagesDownloaded(value.sanitizedTitle) == 0) {
                     return false;
-                } else if (numberOfPagesDownloaded() === value.numberOfPages) {
+                } else if (numberOfPagesDownloaded(value.sanitizedTitle) == value.numberOfPages) {
                     updateWhatHappened(`Ik denk dat we er zijn! Check je gebruikersmap voor het mapje vivaforum-downloads.`, 12000, "succes.svg");
                     return true;
-                } else {
-                    console.log('eerder gezien, maar nog niet compleet');
+                } else if (numberOfPagesDownloaded(value.sanitizedTitle) < value.numberOfPages) {
                     return false;
                 }
             }
