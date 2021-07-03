@@ -29,7 +29,7 @@ html {
     height: 100%;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 800px) {
     html {
         font-size: 16px;
     }
@@ -170,18 +170,23 @@ main .container {
 .app-footer { 
     height: auto;
     color: white;
-    flex: 1 0 50px;
+    /* flex: 1 0 50px; */
 }
 
-@media screen and (min-width: 300px) {
-    .app-footer p {
+.app-footer .container > * {
         flex: 1 1 50%;
         align-self: flex-start;
-    }
 }
 
+.app-footer ul {
+    padding-left: 1rem;
+}
+    
+
 .app-footer a,
-.app-footer a:visited {
+.app-footer a:visited,
+.app-footer .showInline,
+.app-footer .showInline:visited {
     color: white;
     padding: 0;
 }
@@ -210,7 +215,7 @@ h1 a {
     color: white;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 800px) {
     h1 {
         font-size: 1.6rem;
     }

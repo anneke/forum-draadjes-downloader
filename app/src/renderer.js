@@ -206,17 +206,9 @@ function finished(timeDelay, sanitizedTitle) {
 
     finished.removeAttribute("hidden");
 
-    // homedirInfo = document.getElementById("homedir");
-    // homedirInfo.innerHTML = homedir;
-
     naamDraadje = document.getElementById("naamDraadje");
     naamDraadje.innerHTML = homedir + sanitizedTitle + '/';
     
-    // document.querySelectorAll('.openHomeDir').forEach(item => {
-    //     item.addEventListener('click', event => {
-    //         shell.openPath(homedir);
-    //     })
-    // });
 
     document.querySelectorAll('.openThreadInHomeDir').forEach(item => {
         item.addEventListener('click', event => {
@@ -224,7 +216,6 @@ function finished(timeDelay, sanitizedTitle) {
         })
     });
 }
-
 
 function updateWhatHappened(updateUser, timeDelay, icon = "") {
     function addUpdate() {
@@ -248,6 +239,11 @@ function clearOutWhatHappened() {
     document.getElementById("statusUpdate").innerHTML = "";
 }
 
+document.querySelectorAll('.openHomeDir').forEach(item => {
+    item.addEventListener('click', event => {
+        shell.openPath(homedir);
+    })
+});
 
 // const myNotification = new Notification('Title', {
 //     body: 'Reloaded the app'
