@@ -8,6 +8,7 @@
 const os = require('os');
 const fs = require('fs');
 const path = require('path');
+const { shell } = require('electron');
 const scrape = require('website-scraper');
 const SaveToExistingDirectoryPlugin = require('website-scraper-existing-directory');
 const jsdom = require("jsdom");
@@ -128,7 +129,7 @@ function handleSubmit(event) {
                 updateWhatHappened(`Even kijken!`, 100);
             }
 
-            updateWhatHappened(`Ik denk dat we er zijn! Check je gebruikersmap voor het mapje vivaforum-downloads.`, 1000, "succes.svg");
+            finished(1000, value.sanitizedTitle);
         } else {
             if (timesRun == 0) {
                 updateWhatHappened(`Ah, ik heb dit draadje eerder gezien!`, 100);
@@ -178,7 +179,7 @@ function handleSubmit(event) {
                 if (numberOfPagesDownloaded(value.sanitizedTitle) == 0) {
                     return false;
                 } else if (numberOfPagesDownloaded(value.sanitizedTitle) == value.numberOfPages) {
-                    updateWhatHappened(`Ik denk dat we er zijn! Check je gebruikersmap voor het mapje vivaforum-downloads.`, 12000, "succes.svg");
+                    finished(12000, value.sanitizedTitle);
                     return true;
                 } else if (numberOfPagesDownloaded(value.sanitizedTitle) < value.numberOfPages) {
                     return false;
@@ -195,10 +196,35 @@ function handleSubmit(event) {
     });
 }
 
-
 const form = document.querySelector('form#download-form');
 form.addEventListener('submit', handleSubmit);
  
+function finished(timeDelay, sanitizedTitle) {
+    updateWhatHappened(`Ik denk dat we er zijn!`, timeDelay, "succes.svg");
+
+    const finished = document.getElementById("finished"); 
+
+    finished.removeAttribute("hidden");
+
+    // homedirInfo = document.getElementById("homedir");
+    // homedirInfo.innerHTML = homedir;
+
+    naamDraadje = document.getElementById("naamDraadje");
+    naamDraadje.innerHTML = homedir + sanitizedTitle + '/';
+    
+    // document.querySelectorAll('.openHomeDir').forEach(item => {
+    //     item.addEventListener('click', event => {
+    //         shell.openPath(homedir);
+    //     })
+    // });
+
+    document.querySelectorAll('.openThreadInHomeDir').forEach(item => {
+        item.addEventListener('click', event => {
+            shell.openPath(homedir + '/' + sanitizedTitle + '/');
+        })
+    });
+}
+
 
 function updateWhatHappened(updateUser, timeDelay, icon = "") {
     function addUpdate() {

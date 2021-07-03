@@ -25,12 +25,12 @@ Het programma is ongeveer 80,5 MB.
 <div class="download_boxes">
     <article id="windowsDownload" class="download_version">
         <img src="assets/img/windows.svg" alt="" />
-        <a href="/downloads/vivaforum-draadjes-downloader-2.0.0.exe" download>Download de Windows versie</a>
+        <a href="/downloads/vivaforum-draadjes-downloader-3-0-0.exe" download>Download de Windows versie</a>
     </article> 
 
     <article id="macDownload" class="download_version">
         <img src="assets/img/macos.svg" alt="" />
-        <a href="/downloads/vf-draadjes-downloader-v2_0_0.dmg" download>Download de Mac versie</a>
+        <a href="/downloads/vf-draadjes-downloader-v3_0_0.dmg" download>Download de Mac versie</a>
     </article>
 </div>
 </section>
