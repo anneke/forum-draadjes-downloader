@@ -13,8 +13,8 @@ Om alles dat het Vivaforum voor veel mensen was niet zomaar te laten verdwijnen,
 
 ## Download het programma
 
-Je kunt hier de software downloaden en installeren voor het systeem waar je computer mee werkt.<br />
-Het programma is ongeveer 80,5 MB.
+Je kunt hier de software (versie 4.0.0) downloaden en installeren voor het systeem waar je computer mee werkt.<br />
+Het programma is ongeveer 80 MB.
 
 <div id="desktopWarning">
     <strong>Let op:</strong> Dit is software voor een desktop computer! 
@@ -23,15 +23,15 @@ Het programma is ongeveer 80,5 MB.
 <strong id="systemUsed"></strong>
 
 <div class="download_boxes">
-    <article id="windowsDownload" class="download_version">
-        <img src="assets/img/windows.svg" alt="" />
-        <a href="/downloads/vivaforum-draadjes-downloader-3-0-0.exe" download>Download de Windows versie</a>
-    </article> 
+<article id="windowsDownload" class="download_version">
+    <img src="assets/img/windows.svg" alt="" />
+    <a href="/downloads/vivaforum-draadjes-downloader-4-0-0.exe" download>Download voor Windows</a>
+</article> 
 
-    <article id="macDownload" class="download_version">
-        <img src="assets/img/macos.svg" alt="" />
-        <a href="/downloads/vf-draadjes-downloader-v3_0_0.dmg" download>Download de Mac versie</a>
-    </article>
+<article id="macDownload" class="download_version">
+    <img src="assets/img/macos.svg" alt="" />
+    <a href="/downloads/vf-draadjes-downloader-v4_0_0.dmg" download>Download voor MacOS</a>
+</article>
 </div>
 </section>
 
