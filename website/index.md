@@ -45,7 +45,7 @@ Het programma is ongeveer 80 MB.
 <section id="ifMac" hidden>
     <h2>Installeer je dit op een Mac?</h2>
     <p>macOS staat standaard zo ingesteld, dat je alleen programma's uit de Mac App Store kunt installeren. Heb je software gedownload van de website van de ontwikkelaar, dan zul je hiervoor een extra stap moeten nemen.</p>
-    <p><a href="https://www.iculture.nl/tips/mac-apps-installeren-buiten-mac-app-store-om/" target="_blank" rel="noreferrer noopener">Dit artikel van iCulture (opent in een nieuw scherm) legt uit hoe je de app kunt installeren.</a></p>
+    <p><a href="https://www.iculture.nl/tips/mac-apps-installeren-buiten-mac-app-store-om/" target="_blank" rel="noreferrer noopener">Dit artikel van iCulture legt uit hoe je de app kunt installeren (opent in een nieuw scherm).</a></p>
 </section>
 
 <section markdown="1">
@@ -91,7 +91,11 @@ Ben je blij met dit programma en wil je me graag bedanken, dan kun je [met iDeal
 
 Ik ([Anneke Sinnema](https://www.linkedin.com/in/annekesinnema/)) heb gebruik gemaakt van [Electron](https://www.electronjs.org/) om een cross-platform applicatie te bouwen met HTML, CSS en JavaScript. De [code van het programma en van deze website is vrij in te zien op Github](https://github.com/anneke/vivaforum-draadjes-downloader). Ben je zelf handig met code, dan kun je via dat platform een kopie maken van deze site/software of suggesties en zelf aanvullingen doen.
 
-Met dank aan Kilian Valkhof voor zijn hulp bij het inrichten van het buildproces. Hij is de maker van [Polypane](https://polypane.app/), een browser voor developers.
+Ik heb de app en de website geprobeerd toegankelijk te maken voor verschillende mensen met een beperking. Door bijvoorbeeld rekening te houden met de koppenstructuur, duidelijke links en contrast van kleur-op-kleur. Kom je alsnog iets tegen dat je onduidelijk vindt, of waar je niet bij kunt, [hoor ik dat heel graag](mailto:mail@annekesinnema.nl)! Ik pas het aan en daar leer ik van voor mijn volgende project.
+
+Met dank aan Kilian Valkhof voor zijn hulp bij het inrichten van het buildproces. Hij is de maker van [Polypane](https://polypane.app/), een superslimme ontwikkelbrowser voor developers.
+
+Ik gebruik geen cookies, maar wel [Plausible.io](https://plausible.io) om zonder jouw privacy te riskeren te bekijken hoeveel mensen deze pagina bezoeken. Jij kunt zien wat ik zie, want [de statistieken zijn publiek toegankelijk](https://plausible.io/vivaforum.annekesinnema.nl).
 
 <a href="https://github.com/anneke/vivaforum-draadjes-downloader" target="_blank" rel="noreferrer nofollow">
 <img src="/assets/img/github.png" width="37" height="37" alt="Bekijk op Github" /></a>
