@@ -85,12 +85,16 @@ function handleSubmit(event) {
             // and then take off the last 6 characters for just the date
             const justTheDate = dateAndTime.replace(/ /g, '').slice(0, -6);
 
+            console.log(pageTitle);
+            cleanedUpTitle = slugify(pageTitle, { remove: /[*+~.()'"!:@,?/\|]/g });
+
             let threadInfo = {
                 title: pageTitle,
-                sanitizedTitle: slugify(justTheDate) + '_' + slugify(pageTitle),
+                sanitizedTitle: slugify(justTheDate) + '_' + cleanedUpTitle,
                 numberOfPages: parseInt(numberOfPages),
             };
-    
+
+            console.log(threadInfo.sanitizedTitle);
             return threadInfo;
             
         } catch (err) {
@@ -133,9 +137,7 @@ function handleSubmit(event) {
         } else {
             if (timesRun == 0) {
                 updateWhatHappened(`Ah, ik heb dit draadje eerder gezien!`, 100);
-                updateWhatHappened(`Ik heb eerder ${numberOfPagesDownloaded(value.sanitizedTitle)} gedownload van de ${value.numberOfPages} pagina's.<br /> Ik download nu de rest...`, 3000);
-            } else {
-
+                updateWhatHappened(`Ik heb eerder ${numberOfPagesDownloaded(value.sanitizedTitle)} pagina('s) gedownload van de ${value.numberOfPages} pagina's.<br /> Ik download nu de rest...`, 3000);
             }
         }
 
@@ -168,6 +170,8 @@ function handleSubmit(event) {
             checkAndRepeat();
         }
 
+        // window.addEventListener('offline', () => updateWhatHappened(`De internetverbinding lijkt offline te zijn...`, 500));
+        
         downloadAllThePages();
 
         // check three times if we got it all!
