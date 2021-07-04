@@ -30,7 +30,7 @@ Het programma is ongeveer 80 MB.
 
 <article id="macDownload" class="download_version">
     <img src="assets/img/macos.svg" alt="" />
-    <a href="https://github.com/anneke/vivaforum-draadjes-downloader/raw/main/app/out/make/vf-draadjes-downloader-v4_0_0.dmg" download>Download voor MacOS</a>
+    <a href="https://github.com/anneke/vivaforum-draadjes-downloader/raw/main/app/out/make/vf-draadjes-downloader-v4_1_0.dmg" download>Download voor MacOS</a>
 </article>
 </div>
 </section>
