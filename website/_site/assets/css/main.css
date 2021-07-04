@@ -4,7 +4,7 @@ html { margin: 0; padding: 0; font-size: 16px; }
 
 body { background-color: #f2f2f2; color: #333333; font-family: "Montserrat", sans-serif; font-size: 1rem; line-height: 1.7; font-weight: normal; margin: 0; }
 
-a { color: #c2474b; }
+a { color: #bb3e4b; }
 
 * { box-sizing: border-box; }
 
@@ -19,7 +19,7 @@ a { color: #c2474b; }
   #desktopWarning { display: none; } }
 @media screen and (min-width: 800px) { .only-desktop { display: inline; } }
 .download_version { position: relative; padding: 1rem; text-align: center; display: flex; flex-direction: column; align-items: center; border-radius: 4px; border: 1px solid transparent; }
-.download_version a { display: block; }
+.download_version a { display: block; color: #bb3e4b; }
 .download_version a:after { content: " "; position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 .download_version img { max-width: 60px; max-height: 60px; width: auto; display: block; height: 100%; margin-bottom: 1rem; }
 @media screen and (min-width: 600px) { .download_version img { max-width: 100px; max-height: 100px; margin-bottom: 2rem; } }

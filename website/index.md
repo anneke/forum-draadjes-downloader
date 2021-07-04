@@ -25,12 +25,12 @@ Het programma is ongeveer 80 MB.
 <div class="download_boxes">
 <article id="windowsDownload" class="download_version">
     <img src="assets/img/windows.svg" alt="" />
-    <a href="/downloads/vivaforum-draadjes-downloader-4-0-0.exe" download>Download voor Windows</a>
+    <a href="https://github.com/anneke/vivaforum-draadjes-downloader/raw/main/app/out/make/squirrel.windows/x64/vivaforum-draadjes-downloader-4-0-0.exe" download>Download voor Windows</a>
 </article> 
 
 <article id="macDownload" class="download_version">
     <img src="assets/img/macos.svg" alt="" />
-    <a href="/downloads/vf-draadjes-downloader-v4_0_0.dmg" download>Download voor MacOS</a>
+    <a href="https://github.com/anneke/vivaforum-draadjes-downloader/raw/main/app/out/make/vf-draadjes-downloader-v4_0_0.dmg" download>Download voor MacOS</a>
 </article>
 </div>
 </section>
