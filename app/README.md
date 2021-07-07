@@ -1,5 +1,5 @@
 <div lang="nl">
-# Vivaforum draadjes downloader
+# Forum draadjes downloader
 
 Je kunt dit programma downloaden via de website [viva-downloader.nl](https://www.viva-downloader.nl). Op deze plek kun je kijken wat er in de code gebeurt, en een kopie maken om bijvoorbeeld de opmaak aan te passen. 
 
@@ -14,7 +14,7 @@ Zie de website [viva-downloader.nl](https://www.viva-downloader.nl) voor uitleg 
 
 ```bash
 # Kloon deze repository:
-git clone https://github.com/anneke/vivaforum-draadjes-downloader.git
+git clone https://github.com/anneke/forum-draadjes-downloader.git
 # Ga de map in
 cd vivaforum-draadjes-downloader
 # Installeer afhankelijkheden

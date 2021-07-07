@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Vivaforum draadjes downloader</title>
+    <title>Forum draadjes downloader</title>
     <link rel="stylesheet" as="style" href="css/style.css">
     <meta http-equiv="Content-Security-Policy" content="default-src *  data: blob: filesystem: about: ws: wss: 'unsafe-inline' 'unsafe-eval'; connect-src * data: blob: 'unsafe-inline';">
   </head>
@@ -12,7 +12,7 @@
             <div class="container">
                 <h1> 
                     <a href="index.html">
-                        Vivaforum draadjes downloader
+                        Forum draadjes downloader
                     </a>
                 </h1>
                 <nav class="main_nav">
@@ -30,6 +30,16 @@
                 <h2>Begin met downloaden</h2>
                 
                 <input type="hidden" name="whichForm" id="whichForm" value="formDefault" />
+
+                <p>
+                    <label for="download_topic_category">
+                        <span class="field-description">Van welk forum probeer je iets te downloaden?:</span>
+
+                        <select name="download_topic_category" id="download_topic_category">
+                            <option value="viva"  selected="selected">Viva</option>
+                        </select>
+                    </label>
+                </p>
                 
                 <label for="download_url">
                     <span class="field-description">Plak hier de linkadres naar het draadje:</span><br />
@@ -73,15 +83,15 @@
             <div>
                 <ul>
                     <li>
-                        <a href="https://www.viva-downloader.nl" target="_blank" rel="noreferrer nofollow">
+                        <a href="https://forum-downloader.annekesinnema.nl" target="_blank" rel="noreferrer nofollow">
                             <span class="nav_linklabel">Project website</span>
                         </a>
                     </li>
-                    <li><button class="openHomeDir showInline" id="homedir">Open jouw vivaforum-downloadmap</button></li>
+                    <li><button class="openHomeDir showInline" id="homedir">Open jouw forum-downloadmap</button></li>
                 </ul>
             </div>
         
-            <p>De code van dit programma en bijbehorende website zijn beiden in te zien via <a href="https://github.com/anneke/vivaforum-draadjes-downloader">Github</a></p>
+            <p>De code van dit programma en bijbehorende website zijn beiden in te zien via <a href="https://github.com/anneke/forum-draadjes-downloader">Github</a></p>
         </div>
     </footer>
 

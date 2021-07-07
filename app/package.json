@@ -1,7 +1,7 @@
 {
-  "name": "vivaforum-draadjes-downloader",
-  "version": "1.0.0",
-  "description": "Een electron applicatie om gemakkelijk(er) Vivaforum draadjes te downloaden",
+  "name": "forum-draadjes-downloader",
+  "version": "4.2.0",
+  "description": "Een electron applicatie om gemakkelijk(er) Forum draadjes te downloaden",
   "main": "main.js",
   "scripts": {
     "start": "electron-forge start",
@@ -11,7 +11,7 @@
     "make-win": "electron-forge make --platform=win32",
     "make-mac": "electron-forge make --platform=darwin"
   },
-  "repository": "https://github.com/anneke/vivaforum-draadjes-downloader",
+  "repository": "https://github.com/anneke/forum-draadjes-downloader",
   "author": "anneke",
   "keywords": [
     "vivaforum",

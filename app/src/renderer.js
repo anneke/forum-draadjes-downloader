@@ -15,7 +15,7 @@ const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 const slugify = require('slugify');
   
-const homedir = os.homedir() + '/vivaforum-downloads/'; 
+const homedir = os.homedir() + '/forum-downloads/'; 
     
 function handleSubmit(event) {
     event.preventDefault();
@@ -24,6 +24,8 @@ function handleSubmit(event) {
     timesRun = 0;
 
     const formUsed = document.getElementById('whichForm').value;
+
+    const forumUsed = document.getElementById('whichForum').value;
 
     if (formUsed == "formDefault") {
         let vivaURL = /^https:\/\/forum\.viva\.nl\//;
@@ -35,7 +37,7 @@ function handleSubmit(event) {
             let regex = /\/[0-9]{1,3}$/; // AHA
             download_url = download_url_dirty.split(regex)[0].split('?')[0];
         } else {
-            updateWhatHappened('Is dit wel een link naar het Vivaforum?!', 0);
+            updateWhatHappened('Is dit wel een forum link?', 0);
             download_url = null;
         }
 
@@ -64,7 +66,7 @@ function handleSubmit(event) {
             const dom = await new JSDOM(text);
 
             if (!response.ok) {
-                updateWhatHappened('Er ging iets mis met het ophalen van informatie over het draadje. Ik kan geen verbinding maken met de server van het Vivaforum. Is het al 2 augustus geweest? 😭', 1000);
+                updateWhatHappened('Er ging iets mis met het ophalen van informatie over het draadje. Ik kan geen verbinding maken met de server van het forum. Is het al 2 augustus geweest? 😭', 1000);
             }
         
             function numberOfPagesToDownload() {
@@ -122,7 +124,7 @@ function handleSubmit(event) {
             updateWhatHappened(`Verbinding gemaakt met de server! Klaar om het draadje "${value.title}" te downloaden...`, 300);
 
             if (value.numberOfPages >= 40) {
-                updateWhatHappened(`Dit draadje telt maar liefst ${value.numberOfPages} pagina's. Ik heb waarschijnlijk wat meer tijd nodig om alles te downloaden. Check ook even het mapje vivaforum-downloads in je gebruikersmap, dan zie je hoe alles binnendruppelt.`, 5000);
+                updateWhatHappened(`Dit draadje telt maar liefst ${value.numberOfPages} pagina's. Ik heb waarschijnlijk wat meer tijd nodig om alles te downloaden. Check ook even het mapje forum-downloads in je gebruikersmap, dan zie je hoe alles binnendruppelt.`, 5000);
             } else if (value.numberOfPages == 1) {
                 updateWhatHappened(`Dit draadje telt ${value.numberOfPages} pagina.`, 5000);
             } else {
