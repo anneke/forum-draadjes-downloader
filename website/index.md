@@ -12,7 +12,7 @@ Dit programma downloadt niet een heel forum, alleen het specifieke draadje dat j
 
 ## Download het programma
 
-Je kunt hier de software (versie 4.1.0) downloaden en installeren voor het systeem waar je computer mee werkt.<br />
+Je kunt hier de software downloaden en installeren voor het systeem waar je computer mee werkt.<br />
 Het programma is ongeveer 80 MB.
 
 <div id="desktopWarning">
@@ -24,12 +24,12 @@ Het programma is ongeveer 80 MB.
 <div class="download_boxes">
 <article id="windowsDownload" class="download_version">
     <img src="assets/img/windows.svg" alt="" />
-    <a href="https://github.com/anneke/forum-draadjes-downloader/raw/main/app/out/make/squirrel.windows/x64/vf-draadjes-downloader-4-1-0.exe" download>Download voor Windows</a>
+    <a href="https://github.com/anneke/forum-draadjes-downloader/raw/main/app/out/make/squirrel.windows/x64/vf-draadjes-downloader-4-1-0.exe" download>Download voor Windows<br /> (versie 4.1.0)</a>
 </article> 
 
 <article id="macDownload" class="download_version">
     <img src="assets/img/macos.svg" alt="" />
-    <a href="https://github.com/anneke/forum-draadjes-downloader/raw/main/app/out/make/vf-draadjes-downloader-v4_1_0.dmg" download>Download voor MacOS</a>
+    <a href="https://github.com/anneke/forum-draadjes-downloader/raw/main/app/out/make/vf-draadjes-downloader-v4_1_0.dmg" download>Download voor MacOS<br /> (versie 4.2.0)</a>
 </article>
 </div>
 </section>
