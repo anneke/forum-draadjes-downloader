@@ -16,12 +16,6 @@
         url("../fonts/montserrat-v15-latin_cyrillic-ext_cyrillic-regular.woff") format("woff");
 }
 
-$colorviva-1: #e76285;
-$colorviva-2: #facbc9;
-$colorviva-3: #f69574;
-$colorviva-4: #bb3e4b;
-$colorviva-5: #5baeb6;
-
 html {
     margin: 0;
     padding: 0;
@@ -39,7 +33,7 @@ body {
 }
 
 a {
-    color: $colorviva-4;
+    color: #bb3e4b;
 }
 
 * {
@@ -102,7 +96,7 @@ a {
 
     a {
         display: block;
-        color: $colorviva-4;
+        color: #bb3e4b;
     }
 
     a:after {
@@ -133,7 +127,7 @@ a {
 
     &:hover,
     &:focus {
-        border: 1px solid $colorviva-5;
+        border: 1px solid #bb3e4b;
     }
 }
 

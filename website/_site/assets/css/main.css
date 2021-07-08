@@ -23,7 +23,7 @@ a { color: #bb3e4b; }
 .download_version a:after { content: " "; position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 .download_version img { max-width: 60px; max-height: 60px; width: auto; display: block; height: 100%; margin-bottom: 1rem; }
 @media screen and (min-width: 600px) { .download_version img { max-width: 100px; max-height: 100px; margin-bottom: 2rem; } }
-.download_version:hover, .download_version:focus { border: 1px solid #5baeb6; }
+.download_version:hover, .download_version:focus { border: 1px solid #bb3e4b; }
 
 .container { max-width: 1024px; margin: 0 auto; padding: 0 1.3rem; }
 main .container { background-color: white; padding: 1.5rem 1.3rem; }
